@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KitchenMax | Proyectos en Todo México</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --negro: #0d0d0d;
+            --negro-card: #141414;
+            --gris-oscuro: #1a1a1a;
+            --gris-borde: #2a2a2a;
+            --gris-texto: #888;
+            --gris-claro: #f0f0f0;
+            --blanco: #ffffff;
+            --rojo: #d10e12;
+            --rojo-hover: #ad0b0f;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--blanco);
+            background: var(--negro);
+            overflow-x: hidden;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1001;
+            background: var(--negro);
+            padding: 8px 60px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .top-bar a, .top-bar span {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover { color: var(--blanco); }
+
+        .top-bar-sep {
+            width: 1px;
+            height: 12px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 32px; left: 0; width: 100%;
+            z-index: 1000;
+            padding: 0 60px;
+            height: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fcfcfc;
+            border-bottom: none;
+        }
+
+        .nav-logo { display: flex; align-items: center; text-decoration: none; }
+        .nav-logo img { height: 50px; width: auto; }
+
+        .nav-center { display: flex; gap: 40px; list-style: none; }
+        .nav-center a {
+            text-decoration: none;
+            color: rgba(0,0,0,0.5);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .nav-center a:hover { color: var(--negro); }
+
+        .nav-cta-btn {
+            padding: 10px 24px;
+            background: var(--rojo);
+            color: var(--blanco);
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .nav-cta-btn:hover { background: var(--rojo-hover); }
+
+        /* ===== 1. HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .hero-map {
+            position: relative;
+            z-index: 2;
+            flex: 1 1 40%;
+            padding-right: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-map img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('preview (2).webp');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.65) 50%, rgba(13,13,13,0.3) 100%);
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            padding: 120px 60px 80px;
+            flex: 1 1 50%;
+            max-width: 700px;
+        }
+
+        .hero-tag {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .hero-tag-line {
+            width: 40px; height: 2px;
+            background: var(--rojo);
+        }
+
+        .hero-tag-text {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--rojo);
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 7vw, 80px);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 .red { color: var(--rojo); }
+
+        .hero-subtitle {
+            font-size: 17px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+            margin-bottom: 28px;
+            max-width: 440px;
+        }
+
+        .hero-pills {
+            display: flex; gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .hero-pill {
+            padding: 8px 18px;
+            border: 1px solid rgba(255,255,255,0.15);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .hero-buttons {
+            display: flex; gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-red {
+            padding: 16px 32px;
+            background: var(--rojo);
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-red:hover { background: var(--rojo-hover); }
+
+        .btn-outline {
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover { border-color: var(--blanco); }
+
+        /* Hero stats bar */
+        .hero-stats {
+            position: absolute;
+            bottom: 0; right: 0;
+            z-index: 2;
+            display: flex;
+            background: rgba(13,13,13,0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--gris-borde);
+            border-left: 1px solid var(--gris-borde);
+        }
+
+        .hero-stat {
+            padding: 28px 40px;
+            text-align: center;
+            border-right: 1px solid var(--gris-borde);
+        }
+        .hero-stat:last-child { border-right: none; }
+
+        .hero-stat .val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--blanco);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .hero-stat .val span { color: var(--rojo); }
+
+        .hero-stat .lbl {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gris-texto);
+        }
+
+        /* ===== TAG STYLE (reusable) ===== */
+        .stag {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .stag-text {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--rojo);
+        }
+        .stag-line {
+            width: 40px; height: 2px;
+            background: var(--rojo);
+        }
+
+        .stitle {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        /* ===== 2. MODELO DE TRABAJO ===== */
+        .modelo {
+            background: var(--blanco);
+            color: var(--negro);
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .modelo-chef {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            width: 110%;
+            object-fit: cover;
+            object-position: 70% top;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .modelo-top {
+            margin-bottom: 60px;
+            max-width: 700px;
+        }
+
+        .modelo-top .stag-text { color: var(--rojo); }
+        .modelo-top .stitle { color: var(--negro); }
+
+        .modelo-desc {
+            font-size: 16px;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.7;
+            margin-top: 20px;
+            max-width: 600px;
+        }
+
+        .modelo-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            max-width: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .modelo-card {
+            border: none;
+            padding: 32px 28px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .modelo-card:hover {
+            background: #f7f7f7;
+        }
+
+        .modelo-card-num {
+            display: none;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--rojo);
+            margin-bottom: 16px;
+        }
+
+        .modelo-card h4 {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            color: #7a9a00;
+        }
+
+        .modelo-card-brief {
+            font-size: 13px;
+            font-weight: 300;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .modelo-card-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .modelo-card:hover .modelo-card-detail {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 16px;
+        }
+
+        .modelo-card-detail ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .modelo-card-detail li {
+            font-size: 12px;
+            font-weight: 400;
+            color: #555;
+            line-height: 1.5;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .modelo-card-detail li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 5px;
+            height: 5px;
+            background: var(--rojo);
+        }
+
+        .modelo-card-line {
+            width: 30px;
+            height: 2px;
+            background: var(--rojo);
+            margin-top: 16px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .modelo-card:hover .modelo-card-line {
+            transform: scaleX(1);
+        }
+
+        /* Right panel - dark with bars */
+        .modelo-right {
+            background: var(--negro);
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modelo-right-watermark {
+            position: absolute;
+            top: 30px; left: 40px;
+            font-size: 120px;
+            font-weight: 900;
+            color: rgba(255,255,255,0.03);
+            letter-spacing: -4px;
+            line-height: 1;
+        }
+
+        .bar-group {
+            position: relative; z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bar-item {
+            display: grid;
+            grid-template-columns: 140px 1fr 50px;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .bar-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .bar-track {
+            height: 3px;
+            background: rgba(255,255,255,0.08);
+            position: relative;
+        }
+
+        .bar-fill {
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            background: var(--rojo);
+        }
+
+        .bar-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--rojo);
+            text-align: right;
+        }
+
+        /* cobertura section removed */
+        }
+
+        /* ===== 4. TIPOS DE PROYECTO ===== */
+        .proyectos {
+            background: var(--negro);
+            padding: 100px 60px;
+        }
+
+        .proyectos .stitle {
+            color: var(--blanco);
+            margin-bottom: 60px;
+        }
+
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--gris-borde);
+        }
+
+        .pcard {
+            border: 1px solid var(--gris-borde);
+            margin: -0.5px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pcard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--rojo);
+            transition: height 0.4s ease;
+            z-index: 2;
+        }
+
+        .pcard:hover::before {
+            height: 100%;
+        }
+
+        .pcard-img {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .pcard-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(40%) brightness(0.7);
+            transition: filter 0.4s ease, transform 0.4s ease;
+        }
+
+        .pcard:hover .pcard-img img {
+            filter: grayscale(0%) brightness(0.85);
+            transform: scale(1.05);
+        }
+
+        .pcard-content {
+            padding: 28px 32px 36px;
+            flex: 1;
+        }
+
+        .pcard-num {
+            display: none;
+        }
+
+        .pcard-icon {
+            width: 40px; height: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pcard-icon svg {
+            width: 32px; height: 32px;
+            stroke: rgba(255,255,255,0.5);
+            fill: none;
+            stroke-width: 1.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .pcard h3 {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--blanco);
+            margin-bottom: 12px;
+        }
+
+        .pcard p {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--gris-texto);
+            line-height: 1.6;
+        }
+
+        /* ===== 5. METODOLOGIA ===== */
+        .metodologia {
+            background: var(--gris-claro);
+            color: var(--negro);
+            padding: 100px 60px;
+        }
+
+        .metodologia .stag-text { color: var(--rojo); }
+        .metodologia .stitle { color: var(--negro); margin-bottom: 80px; }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 100%;
+            margin: 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 0; width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #ddd, var(--rojo), #ddd);
+        }
+
+        .tl-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .tl-circle {
+            width: 72px; height: 72px;
+            background: var(--negro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+            border: 3px solid #ddd;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .tl-step:hover .tl-circle {
+            background: var(--rojo);
+            border-color: var(--rojo);
+        }
+
+        .tl-circle span {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--blanco);
+        }
+
+        .tl-bg-num {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 80px;
+            font-weight: 900;
+            color: rgba(0,0,0,0.04);
+            z-index: 0;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .tl-step:hover .tl-bg-num {
+            color: rgba(0,0,0,0.08);
+        }
+
+        .tl-label {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--negro);
+            margin-bottom: 8px;
+        }
+
+        .tl-desc {
+            font-size: 12px;
+            font-weight: 300;
+            color: #888;
+            line-height: 1.5;
+            padding: 0 12px;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        /* ===== 6. PERFIL ===== */
+        .perfil {
+            background: var(--gris-claro);
+            color: var(--negro);
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .perfil-watermark {
+            position: absolute;
+            right: -20px;
+            top: 20px;
+            width: clamp(400px, 55vw, 850px);
+            height: auto;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .perfil .stag-text { color: var(--rojo); }
+        .perfil .stitle { color: var(--negro); }
+
+        .perfil-desc {
+            font-size: 16px;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.7;
+            margin-top: 16px;
+            margin-bottom: 48px;
+            max-width: 540px;
+        }
+
+        .perfil-desc u { text-decoration: underline; text-underline-offset: 3px; }
+
+        .perfil-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .perfil-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 32px;
+        }
+
+        .perfil-item {
+            padding: 32px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+        }
+
+        .perfil-check {
+            flex-shrink: 0;
+        }
+
+        .perfil-check svg {
+            width: 36px; height: 36px;
+            stroke: var(--negro);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .perfil-check svg circle {
+            fill: #7a9a00;
+            stroke: #7a9a00;
+        }
+
+        .perfil-check svg path {
+            stroke: var(--blanco);
+            stroke-width: 2;
+        }
+
+        .perfil-item h4 {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--negro);
+            margin-bottom: 4px;
+        }
+
+        .perfil-item p {
+            font-size: 13px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ks-card removed */
+
+
+        /* ===== 7. CTA ===== */
+        .cta {
+            background: var(--negro);
+            padding: 200px 60px 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(200,16,46,0.03) 0%, transparent 40%);
+        }
+
+        .cta .stitle {
+            color: var(--blanco);
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta-sub {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--gris-texto);
+            margin-bottom: 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .cta-desc {
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--gris-texto);
+            line-height: 1.7;
+            max-width: 680px;
+            margin: 0 auto 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-form {
+            background: var(--blanco);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 48px;
+            position: relative;
+            border-radius: 16px;
+        }
+
+        .cta-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .cta-form input,
+        .cta-form select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e0e0e0;
+            background: #f5f5f5;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--negro);
+            outline: none;
+            border-radius: 0;
+            -webkit-appearance: none;
+            margin-bottom: 16px;
+        }
+
+        .cta-form input::placeholder { color: #999; }
+
+        .cta-form input:focus,
+        .cta-form select:focus {
+            border-color: var(--rojo);
+        }
+
+        .cta-form .form-row input,
+        .cta-form .form-row select {
+            margin-bottom: 0;
+        }
+
+        .form-submit-full {
+            width: 100%;
+            padding: 18px;
+            background: var(--rojo);
+            color: var(--blanco);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .form-submit-full:hover { background: var(--rojo-hover); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #fcfcfc;
+            border-top: 1px solid #e0e0e0;
+            padding: 32px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-left img {
+            height: 42px;
+            width: auto;
+            opacity: 1;
+        }
+
+        .footer-left span {
+            font-size: 11px;
+            color: rgba(0,0,0,0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-right {
+            display: flex; gap: 24px;
+        }
+
+        .footer-right a {
+            font-size: 11px;
+            color: rgba(0,0,0,0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        .footer-right a:hover { color: var(--negro); }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .top-bar { padding: 8px 32px; gap: 20px; }
+            nav { padding: 0 32px; }
+            .hero-content { padding: 140px 32px 100px; }
+            .hero-map { padding-right: 32px; }
+            .hero-map img { max-width: 450px; }
+            .hero-stats { position: relative; width: 100%; bottom: auto; right: auto; }
+            .modelo, .proyectos, .metodologia, .perfil { padding: 80px 32px; }
+            .cta { padding: 200px 32px 120px; }
+            .modelo-grid { grid-template-columns: 1fr 1fr; }
+            .modelo-card { border-left: none; border-bottom: 1px solid #ddd; }
+            .modelo-right { min-height: 360px; }
+            .modelo-chef { right: -150px; opacity: 0.15; }
+            .proyectos-grid { grid-template-columns: 1fr 1fr; }
+            .perfil-grid { grid-template-columns: 1fr; }
+            .timeline { flex-wrap: wrap; gap: 32px; justify-content: center; }
+            .timeline::before { display: none; }
+            .tl-step { flex: 0 0 calc(33% - 16px); }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { padding: 6px 20px; gap: 12px; flex-wrap: wrap; }
+            .top-bar-sep { display: none; }
+            nav { padding: 0 20px; }
+            .nav-center { display: none; }
+            .hero { flex-wrap: wrap; }
+            .hero-content { padding: 120px 20px 40px; max-width: 100%; flex: 1 1 100%; }
+            .hero h1 { font-size: 42px; }
+            .hero-map { padding: 0 20px 40px; flex: 1 1 100%; justify-content: center; }
+            .hero-map img { max-width: 300px; width: 80%; }
+            .hero-stats { flex-wrap: wrap; }
+            .hero-stat { flex: 1; min-width: 120px; }
+            .modelo, .proyectos, .metodologia, .perfil { padding: 60px 20px; }
+            .cta { padding: 160px 20px 80px; }
+            .modelo-grid { grid-template-columns: 1fr; }
+            .modelo-chef { display: none; }
+            .perfil-list { grid-template-columns: 1fr 1fr; }
+            .proyectos-grid { grid-template-columns: 1fr; }
+            .tl-step { flex: 0 0 calc(50% - 16px); }
+            .cta-form { padding: 32px 20px; }
+            .cta-form .form-row { grid-template-columns: 1fr; }
+            footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+            .footer-right { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <a href="tel:3321010525">Tel Oficina (33) 2101-0525</a>
+        <span class="top-bar-sep"></span>
+        <a href="https://wa.me/523321010525">WhatsApp (33) 2101-0525</a>
+        <span class="top-bar-sep"></span>
+        <a href="mailto:info@kitchenmax.mx">Email: info@kitchenmax.mx</a>
+        <span class="top-bar-sep"></span>
+        <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="preview.webp" alt="KitchenMax">
+        </a>
+        <ul class="nav-center">
+            <li><a href="#modelo">Modelo</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#metodologia">Metodología</a></li>
+        </ul>
+        <a href="#contacto" class="nav-cta-btn">Solicitar asesoría</a>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <h1>PROYECTOS<br>EN TODO<br><span class="red">MÉXICO</span></h1>
+            <p class="hero-subtitle">Desarrollo y suministro para proyectos comerciales de alto valor.</p>
+
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn-red">Solicitar asesoría especializada</a>
+            </div>
+        </div>
+        <div class="hero-map fade-in">
+            <img src="Banner shopify KM (16).png" alt="Mapa de México">
+        </div>
+    </section>
+
+    <!-- 2. MODELO DE TRABAJO -->
+    <section class="modelo" id="modelo">
+        <img src="CHEF .png" alt="" class="modelo-chef">
+        <div class="modelo-top fade-in">
+            <h2 class="stitle">Ingeniería aplicada<br>a cada proyecto</h2>
+            <p class="modelo-desc">No somos un punto de venta. Somos el socio técnico que acompaña tu operación desde la planeación hasta la puesta en marcha.</p>
+        </div>
+        <div class="modelo-grid fade-in">
+            <div class="modelo-card">
+                <div class="modelo-card-num">01</div>
+                <h4>Asesoría consultiva</h4>
+                <p class="modelo-card-brief">Diagnóstico técnico de necesidades reales y selección estratégica de equipamiento.</p>
+                <div class="modelo-card-detail">
+                    <ul>
+                        <li>Dimensionamiento de espacios y flujos de trabajo</li>
+                        <li>Selección de equipos según tipo de operación</li>
+                        <li>Análisis de capacidad y volumen de producción</li>
+                        <li>Recomendaciones basadas en normativa vigente</li>
+                    </ul>
+                </div>
+                <div class="modelo-card-line"></div>
+            </div>
+            <div class="modelo-card">
+                <div class="modelo-card-num">02</div>
+                <h4>Portafolio especializado</h4>
+                <p class="modelo-card-brief">Más de 5,000 productos y 48 marcas líderes del sector.</p>
+                <div class="modelo-card-detail">
+                    <ul>
+                        <li>Cocción, refrigeración, preparación y conservación</li>
+                        <li>Marcas como Rational, Hobart, True, Torrey, Rhino</li>
+
+                        <li>Productos personalizados bajo pedido</li>
+                    </ul>
+                </div>
+                <div class="modelo-card-line"></div>
+            </div>
+            <div class="modelo-card">
+                <div class="modelo-card-num">03</div>
+                <h4>Coordinación integral</h4>
+                <p class="modelo-card-brief">Gestión logística, instalación y puesta en marcha a nivel nacional.</p>
+                <div class="modelo-card-detail">
+                    <ul>
+                        <li>Envíos coordinados a todo México</li>
+                        <li>Instalación profesional en sitio</li>
+                        <li>Capacitación de uso al equipo operativo</li>
+                        <li>Seguimiento post-entrega garantizado</li>
+                    </ul>
+                </div>
+                <div class="modelo-card-line"></div>
+            </div>
+            <div class="modelo-card">
+                <div class="modelo-card-num">04</div>
+                <h4>Respaldo institucional</h4>
+                <p class="modelo-card-brief">Marca registrada con afiliaciones empresariales sólidas.</p>
+                <div class="modelo-card-detail">
+                    <ul>
+                        <li>Cámara de Comercio Guadalajara</li>
+                        <li>COPARMEX Jalisco</li>
+                        <li>Sistema de Información Empresarial (SIEM)</li>
+                        <li>Parte del ecosistema Grupo Kingstrong</li>
+                    </ul>
+                </div>
+                <div class="modelo-card-line"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 5. METODOLOGIA -->
+    <section class="metodologia" id="metodologia">
+        <div class="fade-in" style="text-align:center;">
+            <h2 class="stitle">Nuestra metodología</h2>
+        </div>
+        <div class="timeline fade-in">
+            <div class="tl-step">
+                <span class="tl-bg-num">01</span>
+                <div class="tl-circle"><span>01</span></div>
+                <div class="tl-label">Análisis</div>
+                <div class="tl-desc">Diagnóstico técnico del espacio y necesidades operativas.</div>
+            </div>
+            <div class="tl-step">
+                <span class="tl-bg-num">02</span>
+                <div class="tl-circle"><span>02</span></div>
+                <div class="tl-label">Asesoría</div>
+                <div class="tl-desc">Selección de equipamiento óptimo con enfoque consultivo.</div>
+            </div>
+            <div class="tl-step">
+                <span class="tl-bg-num">03</span>
+                <div class="tl-circle"><span>03</span></div>
+                <div class="tl-label">Cotización</div>
+                <div class="tl-desc">Propuesta técnica detallada con especificaciones y plazos.</div>
+            </div>
+            <div class="tl-step">
+                <span class="tl-bg-num">04</span>
+                <div class="tl-circle"><span>04</span></div>
+                <div class="tl-label">Coordinación</div>
+                <div class="tl-desc">Logística de entrega e instalación con equipo especializado.</div>
+            </div>
+            <div class="tl-step">
+                <span class="tl-bg-num">05</span>
+                <div class="tl-circle"><span>05</span></div>
+                <div class="tl-label">Seguimiento</div>
+                <div class="tl-desc">Acompañamiento post-entrega y soporte técnico continuo.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TIPOS DE PROYECTO -->
+    <section class="proyectos" id="proyectos">
+        <div class="fade-in">
+            <div class="stag">
+                <span class="stag-text">&nbsp;</span>
+                <span class="stag-line" style="visibility:hidden;"></span>
+            </div>
+            <h2 class="stitle" style="color:var(--blanco);margin-bottom:60px;text-align:center;">Tipos de proyecto</h2>
+        </div>
+        <div class="proyectos-grid fade-in">
+            <div class="pcard">
+                <div class="pcard-img">
+                    <img src="Banner shopify KM (9).png" alt="Restaurantes">
+                </div>
+                <div class="pcard-content">
+                    <div class="pcard-num">01</div>
+                    <h3>Restaurantes</h3>
+                    <p>Desarrollo integral desde planeación hasta operación. Apertura, remodelación y expansión de unidades.</p>
+                </div>
+            </div>
+            <div class="pcard">
+                <div class="pcard-img">
+                    <img src="Banner shopify KM (10).png" alt="Hoteles">
+                </div>
+                <div class="pcard-content">
+                    <div class="pcard-num">02</div>
+                    <h3>Hoteles</h3>
+                    <p>Equipamiento profesional de alto rendimiento para cocinas centrales, restaurantes internos y banquetes.</p>
+                </div>
+            </div>
+            <div class="pcard">
+                <div class="pcard-img">
+                    <img src="Banner shopify KM (11).png" alt="Dark Kitchens">
+                </div>
+                <div class="pcard-content">
+                    <div class="pcard-num">03</div>
+                    <h3>Dark Kitchens</h3>
+                    <p>Configuraciones técnicas para cocinas de alta rotación y producción eficiente orientada a delivery.</p>
+                </div>
+            </div>
+            <div class="pcard">
+                <div class="pcard-img">
+                    <img src="Banner shopify KM (12).png" alt="Institucional">
+                </div>
+                <div class="pcard-content">
+                    <div class="pcard-num">04</div>
+                    <h3>Institucional</h3>
+                    <p>Comedores corporativos, hospitales, universidades y centros de consumo masivo con estándares HACCP.</p>
+                </div>
+            </div>
+            <div class="pcard">
+                <div class="pcard-img">
+                    <img src="Banner shopify KM (13).png" alt="Franquicias">
+                </div>
+                <div class="pcard-content">
+                    <div class="pcard-num">05</div>
+                    <h3>Franquicias</h3>
+                    <p>Estandarización de equipamiento para expansión nacional de cadenas. Precios por volumen y acuerdos marco.</p>
+                </div>
+            </div>
+            <div class="pcard">
+                <div class="pcard-img">
+                    <img src="Banner shopify KM (14).png" alt="Food Retail">
+                </div>
+                <div class="pcard-content">
+                    <div class="pcard-num">06</div>
+                    <h3>Food Retail</h3>
+                    <p>Panaderías, heladerías, cafeterías y establecimientos especializados con equipamiento de marca líder.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PERFIL -->
+    <section class="perfil" id="perfil">
+        <img src="Banner shopify KM (17).png" alt="" class="perfil-watermark">
+        <div class="fade-in">
+
+            <h2 class="stitle">Perfil de los proyectos<br>que atendemos</h2>
+            <p class="perfil-desc">Colaboramos principalmente con empresas y profesionales que valoran la asesoría técnica y buscan un proveedor que aporte análisis, experiencia y acompañamiento en cada etapa del proyecto.</p>
+        </div>
+        <div class="perfil-grid">
+            <ul class="perfil-list fade-in">
+                <li class="perfil-item">
+                    <span class="perfil-check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 9"/></svg></span>
+                    <div>
+                        <h4>Apertura de negocio</h4>
+                        <p>Restaurante, hotel, dark kitchen o establecimiento nuevo desde cero.</p>
+                    </div>
+                </li>
+                <li class="perfil-item">
+                    <span class="perfil-check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 9"/></svg></span>
+                    <div>
+                        <h4>Expansión de cadena</h4>
+                        <p>Franquicia o grupo con múltiples unidades que requieren estandarización.</p>
+                    </div>
+                </li>
+                <li class="perfil-item">
+                    <span class="perfil-check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 9"/></svg></span>
+                    <div>
+                        <h4>Remodelación técnica</h4>
+                        <p>Actualización o reconfiguración de cocina existente para mayor eficiencia.</p>
+                    </div>
+                </li>
+                <li class="perfil-item">
+                    <span class="perfil-check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 9"/></svg></span>
+                    <div>
+                        <h4>Proyecto institucional</h4>
+                        <p>Comedor corporativo, hospital, universidad o infraestructura de consumo masivo.</p>
+                    </div>
+                </li>
+                <li class="perfil-item">
+                    <span class="perfil-check"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 9"/></svg></span>
+                    <div>
+                        <h4>Operación con volumen</h4>
+                        <p>Proyectos que justifican asesoría especializada y acuerdos de suministro.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 7. CTA -->
+    <section class="cta" id="contacto">
+        <div class="fade-in">
+            <h2 class="stitle" style="color:var(--blanco);text-align:center;">Hablemos de<br>tu proyecto</h2>
+            <p class="cta-sub">Asesoría sin costo · Respuesta en menos de 24 horas</p>
+            <p class="cta-desc">Completa el formulario a continuación y déjanos ser parte de tu viaje culinario. Nuestros expertos se pondrán en contacto contigo para discutir los detalles de tu proyecto, responder a tus preguntas y proporcionarte la orientación que necesitas.</p>
+        </div>
+        <div class="cta-form fade-in">
+            <form>
+                <div class="form-row">
+                    <input type="text" placeholder="Nombre completo">
+                    <input type="text" placeholder="Empresa">
+                </div>
+                <div class="form-row">
+                    <input type="email" placeholder="Correo electrónico">
+                    <input type="tel" placeholder="Teléfono / WhatsApp">
+                </div>
+                <select>
+                    <option value="">Tipo de proyecto</option>
+                    <option>Restaurante</option>
+                    <option>Hotel</option>
+                    <option>Dark Kitchen</option>
+                    <option>Institucional</option>
+                    <option>Franquicia</option>
+                    <option>Food Retail</option>
+                    <option>Otro</option>
+                </select>
+                <input type="text" placeholder="Ciudad / Estado del proyecto">
+                <button type="submit" class="form-submit-full">Solicitar asesoría especializada &rarr;</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-left">
+            <img src="preview.webp" alt="KitchenMax">
+            <span>&copy; 2024 KitchenMax · Grupo Kingstrong. Todos los derechos reservados.</span>
+        </div>
+        <div class="footer-right">
+            <a href="#">Zapopan, Jalisco</a>
+            <a href="tel:3321010525">(33) 2101-0525</a>
+            <a href="mailto:info@kitchenmax.mx">info@kitchenmax.mx</a>
+            <a href="#">www.kitchenmax.mx</a>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    </script>
+
+</body>
+</html>
