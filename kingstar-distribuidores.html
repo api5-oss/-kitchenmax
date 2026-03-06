@@ -90,7 +90,7 @@
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            min-height: 70vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -105,39 +105,24 @@
 
         .hero-overlay {
             position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.7) 50%, rgba(13,13,13,0.4) 100%);
+            background: rgba(13,13,13,0.75);
         }
 
         .hero-content {
             position: relative; z-index: 2;
-            padding: 120px 60px 70px;
-            max-width: 720px;
-        }
-
-        .hero-tag {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .hero-tag-line { width: 40px; height: 2px; background: var(--rojo); }
-
-        .hero-tag-text {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--rojo);
+            padding: 100px 60px 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .hero h1 {
-            font-size: clamp(40px, 5.5vw, 68px);
+            font-size: clamp(36px, 5vw, 60px);
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.05;
             letter-spacing: -1px;
             text-transform: uppercase;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         .hero h1 .red { color: var(--rojo); }
@@ -150,15 +135,17 @@
         }
 
         .hero-subtitle {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 300;
             color: rgba(255,255,255,0.6);
             line-height: 1.7;
-            margin-bottom: 40px;
-            max-width: 520px;
+            margin-bottom: 36px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
         .btn-primary {
             display: inline-flex;
@@ -174,29 +161,11 @@
             text-transform: uppercase;
             text-decoration: none;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s;
         }
         .btn-primary:hover { background: var(--rojo-hover); transform: translateY(-1px); }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            background: transparent;
-            color: var(--blanco);
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.25);
-            cursor: pointer;
-            transition: border-color 0.3s, transform 0.2s;
-        }
-        .btn-secondary:hover { border-color: var(--blanco); transform: translateY(-1px); }
 
         /* ===== SECTIONS COMMON ===== */
         .section-padding { padding: 100px 60px; }
@@ -240,60 +209,47 @@
 
         .beneficios-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            margin-top: 60px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
         }
 
         .beneficio-card {
-            padding: 40px 32px;
-            border-right: 1px solid rgba(0,0,0,0.08);
-            position: relative;
-            transition: background 0.3s;
+            padding: 28px 32px;
+            background: #f7f7f7;
+            border-radius: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .beneficio-card:last-child { border-right: none; }
-
-        .beneficio-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: var(--rojo);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .beneficio-card:hover::before { transform: scaleX(1); }
-        .beneficio-card:hover { background: rgba(0,0,0,0.02); }
-
-        .beneficio-num {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--rojo);
-            letter-spacing: 2px;
-            margin-bottom: 24px;
+        .beneficio-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
         }
 
         .beneficio-icon {
-            width: 48px; height: 48px;
-            background: var(--negro);
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--rojo);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
+            flex-shrink: 0;
         }
 
-        .beneficio-icon svg { width: 22px; height: 22px; fill: var(--blanco); }
+        .beneficio-icon svg { width: 20px; height: 20px; fill: var(--blanco); }
+
+        .beneficio-text { flex: 1; }
 
         .beneficio-title {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 14px;
-            line-height: 1.3;
+            text-transform: none;
+            letter-spacing: 0;
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
 
         .beneficio-desc {
@@ -304,7 +260,7 @@
         }
 
         /* ===== PORTAFOLIO ===== */
-        .portafolio { background: var(--gris-oscuro); }
+        .portafolio { background: var(--rojo); }
 
         .portafolio-grid {
             display: grid;
@@ -327,7 +283,7 @@
             position: absolute;
             left: 0; top: 0;
             width: 3px; height: 100%;
-            background: var(--rojo);
+            background: var(--negro);
             transform: scaleY(0);
             transform-origin: top;
             transition: transform 0.4s ease;
@@ -346,7 +302,7 @@
             transition: border-color 0.3s;
         }
 
-        .portafolio-card:hover .portafolio-icon { border-color: var(--rojo); }
+        .portafolio-card:hover .portafolio-icon { border-color: var(--negro); }
 
         .portafolio-icon svg { width: 20px; height: 20px; fill: var(--blanco); }
 
@@ -468,7 +424,7 @@
             left: 24px;
             right: 24px;
             height: 2px;
-            background: var(--rojo);
+            background: #7a9a00;
         }
 
         .proceso-step {
@@ -481,7 +437,8 @@
         .proceso-circle {
             width: 48px; height: 48px;
             background: var(--negro);
-            border: 2px solid var(--rojo);
+            border: 2px solid #7a9a00;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -492,24 +449,24 @@
         }
 
         .proceso-step:hover .proceso-circle {
-            background: var(--rojo);
+            background: #7a9a00;
             transform: scale(1.1);
         }
 
         .proceso-num {
             font-size: 14px;
             font-weight: 800;
-            color: var(--rojo);
+            color: #7a9a00;
             transition: color 0.3s;
         }
 
         .proceso-step:hover .proceso-num { color: var(--blanco); }
 
         .proceso-title {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-transform: none;
+            letter-spacing: 0;
             margin-bottom: 12px;
         }
 
@@ -522,31 +479,35 @@
         }
 
         /* ===== FORMULARIO ===== */
-        .contacto { background: var(--gris-oscuro); }
+        .contacto { background: var(--blanco); color: var(--negro); }
 
         .contacto-wrapper {
             display: flex;
-            gap: 60px;
+            flex-direction: column;
+            align-items: center;
             margin-top: 60px;
-            align-items: flex-start;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contacto-info {
-            flex: 0 0 360px;
+            width: 100%;
         }
 
         .contacto-info-title {
             font-size: 20px;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            text-transform: none;
+            letter-spacing: 0;
             margin-bottom: 20px;
             line-height: 1.3;
+            color: var(--negro);
         }
 
         .contacto-info-text {
             font-size: 14px;
-            color: var(--gris-texto);
+            color: rgba(0,0,0,0.5);
             line-height: 1.7;
             margin-bottom: 32px;
         }
@@ -575,9 +536,10 @@
         }
 
         .contacto-form-card {
-            flex: 1;
-            background: var(--blanco);
-            padding: 48px;
+            width: 100%;
+            background: transparent;
+            padding: 0;
+            text-align: left;
         }
 
         .contacto-form-title {
@@ -587,39 +549,39 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 32px;
+            display: none;
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 16px;
         }
 
         .form-group { display: flex; flex-direction: column; }
         .form-group.full { grid-column: 1 / -1; }
 
-        .form-label {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(0,0,0,0.4);
-            margin-bottom: 8px;
-        }
+        .form-label { display: none; }
 
         .form-input, .form-select, .form-textarea {
-            padding: 14px 16px;
-            border: 1px solid rgba(0,0,0,0.1);
-            background: var(--gris-claro);
+            padding: 16px 20px;
+            border: none;
+            border-radius: 12px;
+            background: #f0f2f5;
             font-family: 'Inter', sans-serif;
-            font-size: 13px;
+            font-size: 14px;
             color: var(--negro);
             outline: none;
-            transition: border-color 0.3s;
+            transition: box-shadow 0.3s;
+        }
+
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: #999;
+            font-weight: 400;
         }
 
         .form-input:focus, .form-select:focus, .form-textarea:focus {
-            border-color: var(--rojo);
+            box-shadow: 0 0 0 2px rgba(209,14,18,0.15);
         }
 
         .form-select {
@@ -627,10 +589,11 @@
             cursor: pointer;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 14px center;
+            background-position: right 16px center;
+            background-color: #f0f2f5;
         }
 
-        .form-textarea { resize: vertical; min-height: 100px; }
+        .form-textarea { resize: vertical; min-height: 120px; border-radius: 12px; }
 
         .form-submit {
             margin-top: 8px;
@@ -643,6 +606,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             border: none;
+            border-radius: 12px;
             cursor: pointer;
             transition: background 0.3s;
             width: 100%;
@@ -653,6 +617,7 @@
         .confianza {
             background: var(--rojo);
             text-align: center;
+            padding: 40px 60px;
         }
 
         .confianza-text {
@@ -661,8 +626,8 @@
             line-height: 1.4;
             max-width: 700px;
             margin: 0 auto;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            text-transform: none;
+            letter-spacing: 0;
         }
 
         /* ===== FOOTER ===== */
@@ -716,7 +681,7 @@
         @media (max-width: 768px) {
             nav { padding: 0 24px; }
             .nav-center { display: none; }
-            .hero-content { padding: 120px 24px 80px; }
+            .hero-content { padding: 80px 24px 50px; }
             .section-padding { padding: 80px 24px; }
             .beneficios-grid { grid-template-columns: 1fr; }
             .beneficio-card { border-right: none; }
@@ -753,7 +718,7 @@
             <li><a href="#proceso">Proceso</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
-        <a class="nav-cta-btn" href="#contacto">Solicitar Informacion</a>
+        <a class="nav-cta-btn" href="#contacto">Solicitar Informaci&oacute;n</a>
     </nav>
 
     <!-- HERO -->
@@ -761,16 +726,12 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>CONVIERTETE EN<br>DISTRIBUIDOR<br><span class="red">KINGSTAR</span> <img src="Banner shopify KM (17).png" alt="KingStar isotipo" class="hero-km-logo"></h1>
-            <p class="hero-subtitle">Expande tu negocio ofreciendo equipos profesionales de cocina industrial utilizados por restaurantes, hoteles y negocios de alimentos en todo Mexico.</p>
+            <h1>CONVI&Eacute;RTETE EN<br>DISTRIBUIDOR<br><span class="red">KINGSTAR</span> <img src="Banner shopify KM (17).png" alt="KingStar isotipo" class="hero-km-logo"></h1>
+            <p class="hero-subtitle">Expande tu negocio ofreciendo equipos profesionales de cocina industrial utilizados por restaurantes, hoteles y negocios de alimentos en todo M&eacute;xico.</p>
             <div class="hero-buttons">
                 <a href="#contacto" class="btn-primary">
-                    Solicitar Informacion
+                    Solicitar Informaci&oacute;n
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 1l7 7-7 7-1.4-1.4L11.2 9H1V7h10.2L6.6 2.4z"/></svg>
-                </a>
-                <a href="#" class="btn-secondary">
-                    Descargar Catalogo
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 12L3 7h3V1h4v6h3L8 12zM2 14h12v1H2v-1z"/></svg>
                 </a>
             </div>
         </div>
@@ -778,222 +739,92 @@
 
     <!-- BENEFICIOS -->
     <section class="beneficios section-padding" id="beneficios">
-        <div class="section-tag">
-            <div class="section-tag-line"></div>
-            <span class="section-tag-text">Ventajas exclusivas</span>
-        </div>
-        <h2 class="section-title" style="color: var(--negro);">POR QUE SER<br>DISTRIBUIDOR <span style="color: var(--rojo);">KINGSTAR</span></h2>
+        <h2 class="section-title" style="color: var(--negro);">POR QU&Eacute; SER<br>DISTRIBUIDOR <span style="color: var(--rojo);">KINGSTAR</span></h2>
 
         <div class="beneficios-grid">
             <div class="beneficio-card">
-                <div class="beneficio-num">01</div>
                 <div class="beneficio-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z"/></svg>
                 </div>
-                <h3 class="beneficio-title">Precios preferenciales</h3>
-                <p class="beneficio-desc">Accede a precios especiales para distribuidores con margenes competitivos.</p>
+                <div class="beneficio-text">
+                    <h3 class="beneficio-title">Precios Preferenciales</h3>
+                    <p class="beneficio-desc">Accede a precios especiales para distribuidores con m&aacute;rgenes competitivos.</p>
+                </div>
             </div>
             <div class="beneficio-card">
-                <div class="beneficio-num">02</div>
                 <div class="beneficio-icon">
                     <svg viewBox="0 0 24 24"><path d="M16 6V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H2v13c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6h-6zm-6-2h4v2h-4V4zm10 15H4V8h16v11z"/></svg>
                 </div>
-                <h3 class="beneficio-title">Productos de alta demanda</h3>
-                <p class="beneficio-desc">Equipos profesionales utilizados por restaurantes, cafeterias, hoteles y negocios gastronomicos.</p>
+                <div class="beneficio-text">
+                    <h3 class="beneficio-title">Productos de Alta Demanda</h3>
+                    <p class="beneficio-desc">Equipos profesionales utilizados por restaurantes, cafeter&iacute;as, hoteles y negocios gastron&oacute;micos.</p>
+                </div>
             </div>
             <div class="beneficio-card">
-                <div class="beneficio-num">03</div>
                 <div class="beneficio-icon">
                     <svg viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14zm-8-2h2v-4h4v-2h-4V7h-2v4H8v2h4z"/></svg>
                 </div>
-                <h3 class="beneficio-title">Disponibilidad constante</h3>
-                <p class="beneficio-desc">Amplio inventario y tiempos de entrega confiables.</p>
+                <div class="beneficio-text">
+                    <h3 class="beneficio-title">Disponibilidad Constante</h3>
+                    <p class="beneficio-desc">Amplio inventario y tiempos de entrega confiables.</p>
+                </div>
             </div>
             <div class="beneficio-card">
-                <div class="beneficio-num">04</div>
                 <div class="beneficio-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                 </div>
-                <h3 class="beneficio-title">Soporte comercial</h3>
-                <p class="beneficio-desc">Material de venta, fichas tecnicas y acompanamiento comercial.</p>
+                <div class="beneficio-text">
+                    <h3 class="beneficio-title">Soporte Comercial</h3>
+                    <p class="beneficio-desc">Material de venta, fichas t&eacute;cnicas y acompa&ntilde;amiento comercial.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PORTAFOLIO -->
-    <section class="portafolio section-padding" id="portafolio">
-        <div class="section-tag">
-            <div class="section-tag-line"></div>
-            <span class="section-tag-text">Catalogo</span>
-        </div>
-        <h2 class="section-title">EQUIPOS QUE PODRAS<br><span style="color: var(--rojo);">COMERCIALIZAR</span></h2>
-        <p class="section-subtitle" style="color: var(--gris-texto);">Kingstar ofrece una amplia gama de equipos disenados para cocinas profesionales.</p>
-
-        <div class="portafolio-grid">
-            <div class="portafolio-card">
-                <div class="portafolio-icon">
-                    <svg viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>
-                </div>
-                <h3 class="portafolio-title">Hornos industriales</h3>
-                <p class="portafolio-desc">Hornos de conveccion, de piso y combinados para alta produccion.</p>
-            </div>
-            <div class="portafolio-card">
-                <div class="portafolio-icon">
-                    <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h12v16zm-7-2h2v-5h3l-4-7-4 7h3z"/></svg>
-                </div>
-                <h3 class="portafolio-title">Freidoras profesionales</h3>
-                <p class="portafolio-desc">Freidoras de alto rendimiento con control preciso de temperatura.</p>
-            </div>
-            <div class="portafolio-card">
-                <div class="portafolio-icon">
-                    <svg viewBox="0 0 24 24"><path d="M2 21h20v-2H2v2zm0-4h20v-2H2v2zm0-4h20v-2H2v2zm0-4h20V7H2v2zm0-6v2h20V3H2z"/></svg>
-                </div>
-                <h3 class="portafolio-title">Parrillas y planchas</h3>
-                <p class="portafolio-desc">Planchas, parrillas y asadores para cocina profesional.</p>
-            </div>
-            <div class="portafolio-card">
-                <div class="portafolio-icon">
-                    <svg viewBox="0 0 24 24"><path d="M20 9V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v4c-1.1 0-2 .9-2 2v5h1.33L4 19h1l.67-3h12.67l.66 3h1l.67-3H22v-5c0-1.1-.9-2-2-2zm-2 0H6V5h12v4z"/></svg>
-                </div>
-                <h3 class="portafolio-title">Equipos de refrigeracion</h3>
-                <p class="portafolio-desc">Refrigeradores, congeladores y mesas frias industriales.</p>
-            </div>
-            <div class="portafolio-card">
-                <div class="portafolio-icon">
-                    <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>
-                </div>
-                <h3 class="portafolio-title">Mesas de preparacion</h3>
-                <p class="portafolio-desc">Mesas de trabajo, tarjas y estaciones de preparacion en acero inoxidable.</p>
-            </div>
-            <div class="portafolio-card">
-                <div class="portafolio-icon">
-                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm3-6c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"/></svg>
-                </div>
-                <h3 class="portafolio-title">Equipos de acero inoxidable</h3>
-                <p class="portafolio-desc">Mobiliario y accesorios fabricados en acero inoxidable grado comercial.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PERFIL DEL DISTRIBUIDOR -->
-    <section class="perfil section-padding" id="perfil">
-        <div class="section-tag">
-            <div class="section-tag-line"></div>
-            <span class="section-tag-text">Requisitos</span>
-        </div>
-        <h2 class="section-title" style="color: var(--negro);">QUIEN PUEDE SER<br><span style="color: var(--rojo);">DISTRIBUIDOR</span></h2>
-        <p class="section-subtitle">Buscamos empresas o profesionales que trabajen en:</p>
-
-        <div class="perfil-content">
-            <div class="perfil-list">
-                <div class="perfil-item">
-                    <div class="perfil-check">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                    <span class="perfil-item-text">Venta de equipo para restaurantes</span>
-                </div>
-                <div class="perfil-item">
-                    <div class="perfil-check">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                    <span class="perfil-item-text">Proveedores para hoteles</span>
-                </div>
-                <div class="perfil-item">
-                    <div class="perfil-check">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                    <span class="perfil-item-text">Distribuidores gastronomicos</span>
-                </div>
-                <div class="perfil-item">
-                    <div class="perfil-check">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                    <span class="perfil-item-text">Instaladores de cocinas industriales</span>
-                </div>
-                <div class="perfil-item">
-                    <div class="perfil-check">
-                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                    <span class="perfil-item-text">Comercializadores de equipo industrial</span>
-                </div>
-            </div>
-
-            <div class="perfil-card">
-                <div class="perfil-card-tag">Red de distribuidores</div>
-                <h3 class="perfil-card-title">Forma parte de Kingstar</h3>
-                <p class="perfil-card-desc">Unete a nuestra red de distribuidores autorizados y accede a beneficios exclusivos, soporte comercial y margenes competitivos.</p>
-                <a href="#contacto" class="perfil-card-btn">Aplicar ahora</a>
-            </div>
-        </div>
-    </section>
 
     <!-- PROCESO -->
     <section class="proceso section-padding" id="proceso">
-        <div class="section-tag">
-            <div class="section-tag-line"></div>
-            <span class="section-tag-text">Como funciona</span>
-        </div>
-        <h2 class="section-title">PROCESO DE<br><span style="color: var(--rojo);">REGISTRO</span></h2>
+        <h2 class="section-title">PROCESO DE<br><span style="color: #7a9a00;">REGISTRO</span></h2>
 
         <div class="proceso-timeline">
             <div class="proceso-step">
                 <div class="proceso-circle">
                     <span class="proceso-num">01</span>
                 </div>
-                <h3 class="proceso-title">Completa tu solicitud</h3>
-                <p class="proceso-desc">Llena el formulario con la informacion de tu empresa y experiencia en el sector.</p>
+                <h3 class="proceso-title">Completa tu Solicitud</h3>
+                <p class="proceso-desc">Llena el formulario con la informaci&oacute;n de tu empresa y experiencia en el sector.</p>
             </div>
             <div class="proceso-step">
                 <div class="proceso-circle">
                     <span class="proceso-num">02</span>
                 </div>
-                <h3 class="proceso-title">Revision de informacion</h3>
-                <p class="proceso-desc">Nuestro equipo comercial revisara tu perfil y te contactara para validar los detalles.</p>
+                <h3 class="proceso-title">Revisi&oacute;n de Informaci&oacute;n</h3>
+                <p class="proceso-desc">Nuestro equipo comercial revisar&aacute; tu perfil y te contactar&aacute; para validar los detalles.</p>
             </div>
             <div class="proceso-step">
                 <div class="proceso-circle">
                     <span class="proceso-num">03</span>
                 </div>
-                <h3 class="proceso-title">Comienza a distribuir</h3>
-                <p class="proceso-desc">Recibe aprobacion, accede a precios preferenciales y comienza a distribuir Kingstar.</p>
+                <h3 class="proceso-title">Comienza a Distribuir</h3>
+                <p class="proceso-desc">Recibe aprobaci&oacute;n, accede a precios preferenciales y comienza a distribuir Kingstar.</p>
             </div>
         </div>
     </section>
 
+
+
     <!-- FORMULARIO -->
-    <section class="contacto section-padding" id="contacto">
-        <div class="section-tag">
-            <div class="section-tag-line"></div>
-            <span class="section-tag-text">Registro</span>
-        </div>
-        <h2 class="section-title">SOLICITA SER<br><span style="color: var(--rojo);">DISTRIBUIDOR</span></h2>
+    <section class="contacto section-padding" id="contacto" style="text-align: center;">
+        <h2 class="section-title" style="color: var(--negro);">SOLICITA SER<br><span style="color: var(--rojo);">DISTRIBUIDOR</span></h2>
 
         <div class="contacto-wrapper">
-            <div class="contacto-info">
-                <h3 class="contacto-info-title">Estamos listos para trabajar contigo</h3>
-                <p class="contacto-info-text">Completa el formulario y nuestro equipo se pondra en contacto contigo en las proximas 48 horas habiles.</p>
-                <div class="contacto-dato">
-                    <div class="contacto-dato-icon">
-                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </div>
-                    <span class="contacto-dato-text">distribuidores@kingstar.mx</span>
-                </div>
-                <div class="contacto-dato">
-                    <div class="contacto-dato-icon">
-                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    </div>
-                    <span class="contacto-dato-text">+52 (33) 1234-5678</span>
-                </div>
-                <div class="contacto-dato">
-                    <div class="contacto-dato-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    </div>
-                    <span class="contacto-dato-text">Zapopan, Jalisco, Mexico</span>
-                </div>
+            <div class="contacto-info" style="text-align: center;">
+                <h3 class="contacto-info-title">Estamos Listos para Trabajar Contigo</h3>
+                <p class="contacto-info-text">Completa el formulario y nuestro equipo se pondr&aacute; en contacto contigo en las pr&oacute;ximas 48 horas h&aacute;biles.</p>
             </div>
 
             <div class="contacto-form-card">
-                <h3 class="contacto-form-title">Informacion del solicitante</h3>
+                <h3 class="contacto-form-title">Informaci&oacute;n del solicitante</h3>
                 <form class="form-grid" onsubmit="event.preventDefault();">
                     <div class="form-group">
                         <label class="form-label">Nombre de la empresa</label>
@@ -1004,11 +835,11 @@
                         <input class="form-input" type="text" placeholder="Nombre completo">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Correo electronico</label>
+                        <label class="form-label">Correo electr&oacute;nico</label>
                         <input class="form-input" type="email" placeholder="correo@empresa.com">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Telefono</label>
+                        <label class="form-label">Tel&eacute;fono</label>
                         <input class="form-input" type="tel" placeholder="+52 (33) 0000-0000">
                     </div>
                     <div class="form-group">
@@ -1018,24 +849,24 @@
                     <div class="form-group">
                         <label class="form-label">Tipo de negocio</label>
                         <select class="form-select">
-                            <option value="">Selecciona una opcion</option>
+                            <option value="">Selecciona una opci&oacute;n</option>
                             <option>Venta de equipo para restaurantes</option>
                             <option>Proveedor para hoteles</option>
-                            <option>Distribuidor gastronomico</option>
+                            <option>Distribuidor gastron&oacute;mico</option>
                             <option>Instalador de cocinas industriales</option>
                             <option>Comercializador de equipo industrial</option>
                             <option>Otro</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Anos en el mercado</label>
+                        <label class="form-label">A&ntilde;os en el mercado</label>
                         <select class="form-select">
                             <option value="">Selecciona</option>
-                            <option>Menos de 1 ano</option>
-                            <option>1 - 3 anos</option>
-                            <option>3 - 5 anos</option>
-                            <option>5 - 10 anos</option>
-                            <option>Mas de 10 anos</option>
+                            <option>Menos de 1 a&ntilde;o</option>
+                            <option>1 - 3 a&ntilde;os</option>
+                            <option>3 - 5 a&ntilde;os</option>
+                            <option>5 - 10 a&ntilde;os</option>
+                            <option>M&aacute;s de 10 a&ntilde;os</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -1044,7 +875,7 @@
                     </div>
                     <div class="form-group full">
                         <label class="form-label">Mensaje</label>
-                        <textarea class="form-textarea" placeholder="Cuentanos sobre tu negocio y por que te interesa distribuir Kingstar..."></textarea>
+                        <textarea class="form-textarea" placeholder="Cu&eacute;ntanos sobre tu negocio y por qu&eacute; te interesa distribuir Kingstar..."></textarea>
                     </div>
                     <div class="form-group full">
                         <button class="form-submit" type="submit">Enviar solicitud</button>
@@ -1055,8 +886,8 @@
     </section>
 
     <!-- CONFIANZA -->
-    <section class="confianza section-padding">
-        <p class="confianza-text">Forma parte de nuestra red de distribuidores y lleva equipos de cocina profesional a mas negocios en Mexico.</p>
+    <section class="confianza">
+        <p class="confianza-text">Forma parte de nuestra red de distribuidores y lleva equipos de cocina profesional a mas negocios en M&eacute;xico.</p>
     </section>
 
     <!-- FOOTER -->
