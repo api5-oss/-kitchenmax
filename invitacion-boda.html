@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yari & Javi — Nuestra Boda</title>
+    <meta property="og:title" content="Yari & Javi — Nos Casamos">
+    <meta property="og:description" content="27 de Marzo de 2026 • Confirma tu asistencia">
+    <meta property="og:image" content="https://api5-oss.github.io/-kitchenmax/WhatsApp%20Image%202026-03-19%20at%209.13.05%20AM%20(1).jpeg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://api5-oss.github.io/-kitchenmax/invitacion-boda.html">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Sacramento&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rosa-pastel: #e8b4b8;
+            --rosa-claro: #f5d5d8;
+            --rosa-suave: #fdf0f2;
+            --verde-olivo: #7a9a00;
+            --verde-olivo-oscuro: #5c7a00;
+            --verde-salvia: #a3b18a;
+            --verde-claro: #dad7cd;
+            --crema: #fefae0;
+            --blanco-roto: #faf8f5;
+            --texto: #3d3d3d;
+            --texto-claro: #6b6b6b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--texto);
+            background-color: var(--blanco-roto);
+            overflow-x: hidden;
+        }
+
+        /* ===== DECORATIVE ELEMENTS ===== */
+        .floral-divider {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 24px;
+            color: var(--verde-salvia);
+            letter-spacing: 12px;
+        }
+
+        .leaf-accent {
+            display: inline-block;
+            color: var(--verde-salvia);
+            font-size: 18px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('WhatsApp Image 2026-03-19 at 9.13.05 AM.jpeg') center top/cover no-repeat;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        .hero::before {
+            top: -50px;
+            left: -80px;
+            background: var(--rosa-pastel);
+        }
+
+        .hero::after {
+            bottom: -50px;
+            right: -80px;
+            background: var(--verde-salvia);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pre-title {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--rosa-claro);
+            margin-bottom: 20px;
+        }
+
+        .couple-names {
+            font-family: 'Sacramento', cursive;
+            font-size: clamp(60px, 14vw, 110px);
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .couple-names .ampersand {
+            display: block;
+            font-size: 0.5em;
+            color: var(--rosa-pastel);
+            margin: -5px 0;
+        }
+
+        .wedding-date-hero {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.85);
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+        .frase {
+            font-family: 'Nunito', sans-serif;
+            font-style: italic;
+            font-size: 17px;
+            color: rgba(255,255,255,0.8);
+            max-width: 500px;
+            margin: 35px auto 0;
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+
+        .scroll-hint {
+            margin-top: 50px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-hint span {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+        }
+
+        .scroll-hint .arrow {
+            font-size: 20px;
+            color: var(--rosa-pastel);
+        }
+
+        /* ===== GALLERY CAROUSEL ===== */
+        .gallery-section {
+            padding: 70px 0;
+            background: var(--blanco-roto);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            max-width: 600px;
+            margin: 35px auto 0;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.4s ease;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .gallery-track.grabbing {
+            cursor: grabbing;
+            transition: none;
+        }
+
+        .gallery-item {
+            min-width: 100%;
+            padding: 0 5px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .gallery-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--verde-claro);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            padding: 0;
+        }
+
+        .gallery-dot.active {
+            background: var(--rosa-pastel);
+            transform: scale(1.3);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.85);
+            border: 1px solid var(--verde-claro);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--texto);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 2;
+        }
+
+        .gallery-nav:hover {
+            background: white;
+        }
+
+        .gallery-nav.prev { left: 5px; }
+        .gallery-nav.next { right: 5px; }
+
+        @media (max-width: 600px) {
+            .gallery-item img {
+                height: 350px;
+            }
+
+            .gallery-nav {
+                width: 34px;
+                height: 34px;
+                font-size: 15px;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ===== COUNTDOWN ===== */
+        .countdown-section {
+            background: var(--crema);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--verde-olivo);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: 'Sacramento', cursive;
+            font-size: clamp(34px, 6vw, 50px);
+            color: var(--texto);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: var(--blanco-roto);
+            border: 1px solid var(--rosa-claro);
+            border-radius: 20px;
+            padding: 20px 15px;
+            min-width: 90px;
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .countdown-number {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--rosa-pastel);
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--texto-claro);
+            margin-top: 8px;
+        }
+
+        /* ===== EVENT DETAILS ===== */
+        .details-section {
+            padding: 80px 20px;
+            background: var(--blanco-roto);
+            text-align: center;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 40px auto 0;
+        }
+
+        .detail-card {
+            background: white;
+            border: 1px solid var(--verde-claro);
+            border-radius: 24px;
+            padding: 40px 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        }
+
+        .detail-icon {
+            font-size: 36px;
+            margin-bottom: 18px;
+        }
+
+        .detail-card h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--texto);
+        }
+
+        .detail-card p {
+            font-weight: 300;
+            font-size: 15px;
+            color: var(--texto-claro);
+            line-height: 1.7;
+        }
+
+        .detail-card .highlight {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 700;
+            color: var(--verde-olivo);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== MAP ===== */
+        .map-section {
+            padding: 0 20px 80px;
+            background: var(--blanco-roto);
+            text-align: center;
+        }
+
+        .map-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--verde-claro);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--verde-olivo);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-bottom: 2px solid var(--verde-olivo);
+            padding-bottom: 2px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .map-link:hover {
+            color: var(--rosa-pastel);
+            border-color: var(--rosa-pastel);
+        }
+
+        /* ===== DRESSCODE ===== */
+        .dresscode-section {
+            background: linear-gradient(135deg, var(--verde-claro) 0%, var(--crema) 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .dresscode-badge {
+            display: inline-block;
+            background: white;
+            border: 1px solid var(--verde-salvia);
+            border-radius: 50px;
+            padding: 18px 40px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--texto);
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        .dresscode-note {
+            font-size: 13px;
+            color: var(--texto-claro);
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        /* ===== RSVP ===== */
+        .rsvp-section {
+            padding: 80px 20px;
+            background: var(--rosa-suave);
+            text-align: center;
+        }
+
+        .rsvp-form {
+            max-width: 450px;
+            margin: 30px auto 0;
+            background: white;
+            padding: 40px 35px;
+            border-radius: 28px;
+            border: 1px solid var(--rosa-claro);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--texto-claro);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--verde-claro);
+            border-radius: 14px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            color: var(--texto);
+            background: var(--blanco-roto);
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--rosa-pastel);
+        }
+
+        .form-group textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        .rsvp-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--verde-olivo);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .rsvp-btn:hover {
+            background: var(--verde-olivo-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .rsvp-success {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .rsvp-success .check {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .rsvp-success h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .rsvp-success p {
+            color: var(--texto-claro);
+            font-weight: 300;
+        }
+
+        .wa-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .wa-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .wa-btn:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--crema);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--verde-claro);
+        }
+
+        .footer-names {
+            font-family: 'Sacramento', cursive;
+            font-size: 36px;
+            color: var(--rosa-pastel);
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--texto-claro);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .footer .heart {
+            color: var(--rosa-pastel);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .countdown {
+                gap: 12px;
+            }
+
+            .countdown-item {
+                min-width: 70px;
+                padding: 15px 10px;
+            }
+
+            .countdown-number {
+                font-size: 32px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .detail-card {
+                padding: 30px 20px;
+            }
+
+            .rsvp-form {
+                padding: 30px 20px;
+            }
+
+            .frase {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="pre-title">Hey, nos casamos</p>
+            <h1 class="couple-names">
+                Yari
+                <span class="ampersand">&</span>
+                Javi
+            </h1>
+            <p class="wedding-date-hero">27 de Marzo de 2026</p>
+            <p class="frase">"No sabemos bailar muy bien, pero juntos llevamos el mejor ritmo. Ven a celebrar con nosotros."</p>
+            <div class="scroll-hint">
+                <span>Descubre más</span>
+                <div class="arrow">&#8595;</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section">
+        <p class="section-subtitle fade-in">Nuestra historia</p>
+        <h2 class="section-title fade-in">el inicio de todo</h2>
+        <div class="gallery-wrapper fade-in">
+            <button class="gallery-nav prev" onclick="moveGallery(-1)">&#8249;</button>
+            <div class="gallery-track" id="galleryTrack">
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-03-19 at 9.13.06 AM.jpeg" alt="La propuesta close-up">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-03-19 at 9.13.05 AM (1).jpeg" alt="Beso con letrero neón">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-03-19 at 9.13.04 AM.jpeg" alt="Caja de anillos J&Y">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-03-19 at 9.13.05 AM 1.jpeg" alt="Beso romántico entre columnas">
+                </div>
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2026-03-19 at 9.13.05 AM 2.jpeg" alt="Abrazo junto a pared rústica">
+                </div>
+            </div>
+            <button class="gallery-nav next" onclick="moveGallery(1)">&#8250;</button>
+            <div class="gallery-dots" id="galleryDots">
+                <button class="gallery-dot active" onclick="goToSlide(0)"></button>
+                <button class="gallery-dot" onclick="goToSlide(1)"></button>
+                <button class="gallery-dot" onclick="goToSlide(2)"></button>
+                <button class="gallery-dot" onclick="goToSlide(3)"></button>
+                <button class="gallery-dot" onclick="goToSlide(4)"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-section fade-in">
+        <p class="section-subtitle">Faltan</p>
+        <h2 class="section-title">para la fiesta</h2>
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">--</div>
+                <div class="countdown-label">Días</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">--</div>
+                <div class="countdown-label">Horas</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">--</div>
+                <div class="countdown-label">Min</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">--</div>
+                <div class="countdown-label">Seg</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="details-section">
+        <p class="section-subtitle fade-in">Apunta esto</p>
+        <h2 class="section-title fade-in">dónde y cuándo</h2>
+        <div class="details-grid">
+            <div class="detail-card fade-in">
+                <div class="detail-icon">&#128197;</div>
+                <h3>Fecha</h3>
+                <p>Viernes 27 de Marzo, 2026</p>
+                <span class="highlight">08:30 PM</span>
+            </div>
+            <div class="detail-card fade-in">
+                <div class="detail-icon">&#127966;</div>
+                <h3>Lugar</h3>
+                <p>M. García Leather and Silver</p>
+                <p style="margin-top: 8px; font-size: 13px;">Volcán Babuyan 5335,<br>Huentitán El Bajo, 44250<br>Guadalajara, Jalisco</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map-section fade-in">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3731.5!2d-103.33!3d20.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVm9sY8OhbiBCYWJ1eWFuIDUzMzU!5e0!3m2!1ses!2smx!4v1"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <a href="https://www.google.com/maps/search/Volcán+Babuyan+5335+Huentitán+El+Bajo+Guadalajara"
+           target="_blank"
+           class="map-link">
+            Abrir en Google Maps &#8599;
+        </a>
+    </section>
+
+    <!-- DRESSCODE -->
+    <section class="dresscode-section fade-in">
+        <p class="section-subtitle">Outfit</p>
+        <h2 class="section-title">cómo ir vestido</h2>
+        <div class="dresscode-badge">Casual</div>
+        <p class="dresscode-note">Ven cómodo y listo para pasarla bien.</p>
+    </section>
+
+    <!-- RSVP -->
+    <section class="rsvp-section" id="rsvp">
+        <p class="section-subtitle fade-in">Dinos si vienes</p>
+        <h2 class="section-title fade-in">¿te apuntas?</h2>
+        <div class="rsvp-form fade-in" id="rsvpForm">
+            <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" id="rsvpName" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label>¿Asistirás?</label>
+                <select id="rsvpAttend">
+                    <option value="">Selecciona una opción</option>
+                    <option value="si">¡Sí, ahí estaré!</option>
+                    <option value="no">No podré asistir</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Número de acompañantes</label>
+                <select id="rsvpGuests">
+                    <option value="0">Solo yo</option>
+                    <option value="1">+1</option>
+                    <option value="2">+2</option>
+                    <option value="3">+3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Mensaje para los novios (opcional)</label>
+                <textarea id="rsvpMessage" placeholder="Escribe algo bonito..."></textarea>
+            </div>
+            <button class="rsvp-btn" onclick="submitRSVP()">Confirmar asistencia</button>
+        </div>
+        <div class="rsvp-success" id="rsvpSuccess">
+            <div class="check">&#10084;&#65039;</div>
+            <h3>¡Casi listo!</h3>
+            <p>Envía tu confirmación por WhatsApp:</p>
+            <div class="wa-buttons" id="waButtons"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-names">Yari & Javi</div>
+        <p>27 &middot; 03 &middot; 2026</p>
+        <p style="margin-top: 15px;">Hecho con <span class="heart">&#10084;</span> y muchas ganas</p>
+    </footer>
+
+    <script>
+        // === COUNTDOWN ===
+        function updateCountdown() {
+            const wedding = new Date('2026-03-27T20:30:00-06:00');
+            const now = new Date();
+            const diff = wedding - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '0';
+                document.getElementById('hours').textContent = '0';
+                document.getElementById('minutes').textContent = '0';
+                document.getElementById('seconds').textContent = '0';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // === SCROLL ANIMATIONS ===
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // === GALLERY CAROUSEL ===
+        let currentSlide = 0;
+        const track = document.getElementById('galleryTrack');
+        const dots = document.querySelectorAll('.gallery-dot');
+        const totalSlides = dots.length;
+
+        function moveGallery(dir) {
+            currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+            updateGallery();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateGallery();
+        }
+
+        function updateGallery() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+        }
+
+        // Autoplay cada 4 segundos
+        let autoplayInterval = setInterval(() => moveGallery(1), 4000);
+
+        function resetAutoplay() {
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(() => moveGallery(1), 4000);
+        }
+
+        // Reiniciar autoplay cuando el usuario interactúa
+        document.querySelector('.gallery-wrapper').addEventListener('click', resetAutoplay);
+        document.querySelector('.gallery-wrapper').addEventListener('touchstart', resetAutoplay);
+
+        // Swipe support
+        let startX = 0;
+        let isDragging = false;
+        let dragOffset = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            track.classList.add('grabbing');
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            dragOffset = e.touches[0].clientX - startX;
+        });
+
+        track.addEventListener('touchend', () => {
+            if (Math.abs(dragOffset) > 50) {
+                moveGallery(dragOffset > 0 ? -1 : 1);
+            }
+            isDragging = false;
+            dragOffset = 0;
+            track.classList.remove('grabbing');
+        });
+
+        // Mouse drag support
+        track.addEventListener('mousedown', (e) => {
+            startX = e.clientX;
+            isDragging = true;
+            track.classList.add('grabbing');
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            dragOffset = e.clientX - startX;
+        });
+
+        track.addEventListener('mouseup', () => {
+            if (Math.abs(dragOffset) > 50) {
+                moveGallery(dragOffset > 0 ? -1 : 1);
+            }
+            isDragging = false;
+            dragOffset = 0;
+            track.classList.remove('grabbing');
+        });
+
+        track.addEventListener('mouseleave', () => {
+            isDragging = false;
+            dragOffset = 0;
+            track.classList.remove('grabbing');
+        });
+
+        // === RSVP ===
+        const waNumbers = [
+            { number: '527352467994', label: 'Yari' },
+            { number: '5213317056631', label: 'Javi' },
+            { number: '5213881015404', label: 'Karen' }
+        ];
+
+        function submitRSVP() {
+            const name = document.getElementById('rsvpName').value.trim();
+            const attend = document.getElementById('rsvpAttend').value;
+            const guests = document.getElementById('rsvpGuests').value;
+            const message = document.getElementById('rsvpMessage').value.trim();
+
+            if (!name || !attend) {
+                alert('Por favor llena tu nombre y confirma si asistirás.');
+                return;
+            }
+
+            const attendText = attend === 'si' ? 'Sí asistiré' : 'No podré asistir';
+            const guestsText = guests === '0' ? 'Solo yo' : '+' + guests + ' acompañante(s)';
+            let waMessage = `*Confirmación Boda Yari & Javi*\n\nNombre: ${name}\nAsistencia: ${attendText}\nAcompañantes: ${guestsText}`;
+            if (message) waMessage += `\nMensaje: ${message}`;
+
+            const encoded = encodeURIComponent(waMessage);
+            const container = document.getElementById('waButtons');
+            container.innerHTML = '';
+
+            waNumbers.forEach(wa => {
+                const link = document.createElement('a');
+                link.href = `https://wa.me/${wa.number}?text=${encoded}`;
+                link.target = '_blank';
+                link.className = 'wa-btn';
+                link.innerHTML = `&#9742; Enviar a ${wa.label}`;
+                container.appendChild(link);
+            });
+
+            document.getElementById('rsvpForm').style.display = 'none';
+            document.getElementById('rsvpSuccess').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
