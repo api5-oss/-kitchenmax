@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>SAVIA — Propuesta de marca paraguas agro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#0057B7;
+    --green:#3DA935;
+    --dark:#0d2c4d;
+    --gray:#f0f0f0;
+    --grad:linear-gradient(135deg,#0057B7 0%,#3DA935 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:#fff;color:#0d0d0d;line-height:1.5}
+
+  /* === SLIDE NAVIGATION (sticky top) === */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #eee;
+    padding:14px 30px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .nav-logo{display:flex;align-items:center;gap:10px;font-family:'Manrope';font-weight:800;font-size:20px;letter-spacing:-0.5px;color:var(--blue)}
+  .nav-logo-mark{width:18px;height:18px;background:var(--grad);border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .nav-meta{font-size:11px;color:#888;letter-spacing:1px}
+
+  /* === SLIDE === */
+  .slide{padding:90px 40px;border-bottom:1px solid #eee;min-height:90vh;display:flex;flex-direction:column;justify-content:center}
+  .slide-num{font-size:11px;letter-spacing:3px;color:var(--blue);font-weight:700;text-transform:uppercase;margin-bottom:12px}
+  .slide-title{font-family:'Manrope';font-size:48px;font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin-bottom:16px}
+  .slide-subtitle{font-family:'Inter';font-size:18px;color:#666;line-height:1.6;max-width:700px;margin-bottom:40px}
+  .slide-content{max-width:1300px;margin:0 auto;width:100%}
+  .slide-tag{display:inline-block;font-size:11px;letter-spacing:2px;color:#888;text-transform:uppercase;margin-bottom:20px}
+
+  /* ============================================
+     SLIDE 1 — COVER
+     ============================================ */
+  .cover{background:var(--grad);color:#fff;padding:120px 40px;text-align:center;border:none}
+  .cover-eyebrow{font-size:13px;letter-spacing:6px;text-transform:uppercase;opacity:0.85;margin-bottom:30px}
+  .cover-logo{display:inline-flex;align-items:center;gap:24px;font-family:'Manrope';font-weight:800;font-size:120px;letter-spacing:-3px;line-height:1;margin-bottom:20px}
+  .cover-mark{width:100px;height:100px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg);box-shadow:0 12px 32px rgba(0,0,0,0.15)}
+  .cover-tag{font-size:18px;letter-spacing:8px;text-transform:uppercase;font-weight:500;margin-bottom:60px;opacity:0.9}
+  .cover-title{font-family:'Manrope';font-size:32px;font-weight:300;max-width:800px;margin:0 auto;line-height:1.4;letter-spacing:-0.5px}
+  .cover-title strong{font-weight:800;display:block;margin-top:6px}
+  .cover-meta{display:inline-flex;gap:50px;margin-top:80px;padding:20px 40px;background:rgba(255,255,255,0.1);border-radius:60px;backdrop-filter:blur(10px)}
+  .cover-meta div{font-size:12px;letter-spacing:2px;text-align:center}
+  .cover-meta strong{display:block;font-size:24px;font-weight:800;margin-bottom:4px}
+
+  /* ============================================
+     SLIDE 2 — RETO
+     ============================================ */
+  .reto-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:40px}
+  .reto-points{display:flex;flex-direction:column;gap:24px}
+  .reto-point{padding:24px 28px;background:#fafafa;border-left:4px solid var(--blue);border-radius:4px}
+  .reto-point h3{font-family:'Manrope';font-weight:700;font-size:18px;margin-bottom:6px;color:var(--blue)}
+  .reto-point p{font-size:14px;color:#555;line-height:1.6}
+  .reto-visual{background:#1a1a1a;border-radius:12px;padding:40px;color:#fff;text-align:center}
+  .reto-visual-old{font-family:'Manrope';font-weight:800;font-size:42px;color:#666;text-decoration:line-through;letter-spacing:-1px;margin-bottom:20px}
+  .reto-visual-arrow{font-size:32px;color:var(--green);margin-bottom:20px}
+  .reto-visual-new{display:flex;align-items:center;justify-content:center;gap:14px;font-family:'Manrope';font-weight:800;font-size:48px;color:#fff;letter-spacing:-1.5px}
+  .reto-visual-new .mark{width:42px;height:42px;background:var(--grad);border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+
+  /* ============================================
+     SLIDE 3 — CONCEPTO
+     ============================================ */
+  .concepto-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:40px}
+  .concepto-text h3{font-family:'Manrope';font-weight:800;font-size:24px;color:var(--blue);margin-bottom:14px}
+  .concepto-text p{font-size:16px;color:#444;line-height:1.7;margin-bottom:18px}
+  .concepto-three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:30px}
+  .concepto-pillar{background:#fafafa;padding:24px 18px;border-radius:8px;text-align:center}
+  .concepto-pillar-icon{width:48px;height:48px;background:var(--grad);border-radius:12px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Manrope';font-weight:800;font-size:20px}
+  .concepto-pillar h4{font-family:'Manrope';font-weight:700;font-size:14px;margin-bottom:6px}
+  .concepto-pillar p{font-size:12px;color:#666;line-height:1.5}
+  .concepto-mark-big{
+    background:var(--grad);
+    aspect-ratio:1/1;
+    border-radius:24px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:#fff;
+    box-shadow:0 24px 60px rgba(0,87,183,0.25);
+  }
+  .concepto-mark-big .mark{width:120px;height:120px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg);box-shadow:0 8px 24px rgba(0,0,0,0.15);margin-bottom:30px}
+  .concepto-mark-big strong{font-family:'Manrope';font-weight:800;font-size:56px;letter-spacing:-1.5px;line-height:1}
+  .concepto-mark-big span{font-size:11px;letter-spacing:6px;text-transform:uppercase;margin-top:10px;opacity:0.9}
+
+  /* ============================================
+     SLIDE 4 — IDENTIDAD VISUAL
+     ============================================ */
+  .id-section{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+  .id-tile{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+  .id-display{height:140px;display:flex;align-items:center;justify-content:center;padding:20px}
+  .id-info{padding:12px 16px;border-top:1px solid #eee}
+  .id-info strong{display:block;font-size:12px;font-weight:600}
+  .id-info span{font-size:10px;color:#888}
+
+  .logo-full{font-family:'Manrope';font-weight:800;font-size:26px;color:#fff;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px}
+  .logo-full .mark{width:20px;height:20px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg);display:inline-block}
+  .logo-mark-big{width:64px;height:64px;background:var(--grad);border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .logo-mark-big .mark{width:34px;height:34px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .logo-horiz{font-family:'Manrope';font-weight:800;font-size:22px;color:var(--blue);letter-spacing:-0.5px;display:flex;align-items:center;gap:8px}
+  .logo-horiz .mark{width:18px;height:18px;background:var(--grad);border-radius:0 50% 0 50%;transform:rotate(-15deg);display:inline-block}
+  .logo-mono{font-family:'Manrope';font-weight:800;font-size:26px;color:#fff;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px}
+  .logo-mono .mark{width:20px;height:20px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg);display:inline-block}
+  .bg-grad{background:var(--grad)}
+  .bg-white{background:#fff;border:1px solid #eee}
+  .bg-dark{background:#0d2c4d}
+
+  .specs-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:50px}
+  .specs-card h3{font-family:'Manrope';font-weight:700;font-size:16px;margin-bottom:18px;color:var(--blue);letter-spacing:1px;text-transform:uppercase}
+  .palette-row{display:flex;gap:8px}
+  .swatch{flex:1;border-radius:6px;overflow:hidden;border:1px solid rgba(0,0,0,0.05)}
+  .swatch-color{height:64px}
+  .swatch-info{padding:8px 10px;background:#fff;border-top:1px solid #eee}
+  .swatch-info strong{display:block;font-size:11px}
+  .swatch-info span{font-size:9px;color:#888;font-family:monospace}
+  .typo-spec{padding:12px 0;border-bottom:1px dashed #eee}
+  .typo-spec:last-child{border:none}
+  .typo-name{font-size:10px;color:#888;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+  .typo-display{font-family:'Manrope';font-weight:800;font-size:32px;letter-spacing:-1px;line-height:1}
+  .typo-meta{font-size:10px;color:#666;font-family:monospace;margin-top:4px}
+
+  /* ============================================
+     SLIDE 5 — ENVASE FRONT (REAL IMAGE)
+     ============================================ */
+  .envase-slide{background:radial-gradient(ellipse at center,#1a1a1a 0%,#0d0d0d 70%);color:#fff;padding:80px 40px}
+  .envase-slide .slide-num{color:var(--green)}
+  .envase-slide .slide-title{color:#fff}
+  .envase-slide .slide-subtitle{color:#aaa}
+  .envase-real{display:flex;justify-content:center;align-items:center;margin-top:30px}
+  .envase-real img{
+    max-height:680px;width:auto;
+    filter:drop-shadow(0 30px 60px rgba(0,0,0,0.5));
+    border-radius:8px;
+  }
+  .envase-callouts{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    max-width:1100px;margin:50px auto 0;
+  }
+  .callout{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:16px 20px;border-radius:10px;backdrop-filter:blur(10px)}
+  .callout-num{font-family:'Manrope';font-weight:800;font-size:24px;color:var(--green);line-height:1;margin-bottom:6px}
+  .callout strong{display:block;font-size:13px;font-weight:600;color:#fff;margin-bottom:4px}
+  .callout p{font-size:12px;color:#aaa;line-height:1.5}
+
+  /* ============================================
+     SLIDE 6 — ENVASE BACK + SIDE (REAL IMAGES)
+     ============================================ */
+  .envase-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:center;margin-top:30px}
+  .envase-grid img{max-width:100%;border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,0.15)}
+  .envase-info h3{font-family:'Manrope';font-weight:800;font-size:24px;margin-bottom:18px}
+  .envase-info ul{list-style:none}
+  .envase-info li{padding:14px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;font-size:14px}
+  .envase-info li strong{color:var(--blue);font-weight:700}
+  .envase-info li span{color:#666}
+
+  .envase-double-img{
+    display:flex;justify-content:center;
+    margin-top:30px;
+  }
+  .envase-double-img img{
+    max-height:600px;width:auto;
+    filter:drop-shadow(0 24px 60px rgba(0,0,0,0.2));
+    border-radius:8px;
+  }
+
+  /* ============================================
+     SLIDE 7 — PORTFOLIO
+     ============================================ */
+  .portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px}
+  .product-card{background:#fff;border-radius:12px;padding:30px 20px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.05);border:1px solid #f0f0f0}
+  .product-num{font-family:'Manrope';font-weight:800;font-size:14px;color:var(--green);letter-spacing:2px;margin-bottom:14px}
+  .product-icon{width:80px;height:80px;background:var(--grad);border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,87,183,0.2)}
+  .product-icon::before{content:"";width:42px;height:42px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .product-name{font-family:'Manrope';font-weight:800;font-size:22px;color:var(--blue);margin-bottom:6px;letter-spacing:-0.5px}
+  .product-cat{font-size:11px;color:var(--green);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;font-weight:700}
+  .product-desc{font-size:13px;color:#666;line-height:1.5;padding-top:14px;border-top:1px dashed #eee}
+  .product-status{margin-top:14px;display:inline-block;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;font-weight:600}
+  .status-now{background:#e8f5e8;color:var(--green)}
+  .status-soon{background:#fff3cd;color:#856404}
+
+  /* ============================================
+     SLIDE 8 — ETIQUETA TÉCNICA
+     ============================================ */
+  .label-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:30px;margin-top:30px;align-items:start}
+  .label-panel{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);border:1px solid #eee}
+  .label-front{aspect-ratio:3/4;display:flex;flex-direction:column}
+  .label-front-top{flex:1;background:var(--grad);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;color:#fff}
+  .lf-brand{font-family:'Manrope';font-weight:800;font-size:38px;letter-spacing:-1px;display:flex;align-items:center;gap:14px}
+  .lf-brand .mark{width:34px;height:34px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .lf-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-top:6px;opacity:0.85}
+  .label-front-bottom{padding:30px 26px;background:#fff;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+  .lf-product{font-family:'Manrope';font-weight:800;font-size:32px;color:var(--blue);letter-spacing:-0.5px}
+  .lf-cat{font-size:11px;color:var(--green);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+  .lf-desc{font-size:12px;color:#444;max-width:240px;line-height:1.5}
+  .lf-sizes{display:flex;gap:14px;margin-top:6px}
+  .lf-sizes span{font-size:10px;border:1px solid #ddd;padding:4px 10px;border-radius:20px;color:#666}
+  .lf-sizes span.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .lf-foot{display:flex;justify-content:space-between;align-items:center;width:100%;padding-top:14px;border-top:1px solid #eee;margin-top:8px}
+  .lf-foot small{font-size:10px;color:#888}
+  .lf-kosher{width:32px;height:32px;border:1.5px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--green);font-size:14px;font-family:'Manrope'}
+
+  .label-back{padding:24px 26px;font-size:11px;line-height:1.5}
+  .lb-section{margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed #e0e0e0}
+  .lb-section:last-child{border:none}
+  .lb-title{font-family:'Manrope';font-weight:700;font-size:11px;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+  .lb-text{color:#333}
+  .lb-text strong{color:var(--blue)}
+  .lb-list{padding-left:14px}
+  .lb-list li{margin-bottom:3px}
+  .lb-table{display:grid;grid-template-columns:130px 1fr;gap:8px;font-size:10px}
+  .lb-table .col{padding:5px 0;border-bottom:1px solid #f5f5f5}
+  .lb-table .col:nth-child(odd){font-weight:600;color:#444}
+  .lb-warn{display:flex;gap:10px;align-items:flex-start}
+  .lb-warn-icon{width:30px;height:30px;border:2px solid #d63638;display:flex;align-items:center;justify-content:center;font-weight:700;color:#d63638;flex-shrink:0;font-size:18px;transform:rotate(45deg)}
+  .lb-warn-icon span{transform:rotate(-45deg)}
+  .lb-foot{font-size:9px;color:#888;display:flex;justify-content:space-between;align-items:center}
+  .barcode{font-family:monospace;font-size:8px;background:repeating-linear-gradient(90deg,#000 0,#000 1px,#fff 1px,#fff 3px,#000 3px,#000 5px,#fff 5px,#fff 6px);width:80px;height:24px;padding-top:4px;padding-left:4px;color:#fff}
+
+  /* ============================================
+     SLIDE 9 — APLICACIONES
+     ============================================ */
+  .apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
+  .app-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.06);border:1px solid #f0f0f0}
+  .app-display{height:280px;padding:30px;display:flex;align-items:center;justify-content:center}
+  .box{width:220px;height:160px;background:#c89968;border-radius:4px;position:relative;box-shadow:inset 0 0 30px rgba(0,0,0,0.1);transform:perspective(800px) rotateY(-15deg) rotateX(5deg)}
+  .box-side{position:absolute;left:30px;right:30px;top:30px;bottom:30px;background:#fff;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px}
+  .box-band{width:100%;background:var(--grad);padding:8px;text-align:center;color:#fff;font-family:'Manrope';font-weight:800;font-size:12px;letter-spacing:1px;border-radius:2px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px}
+  .box-band-mark{width:14px;height:14px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .box-info{font-size:9px;color:#666;text-align:center;line-height:1.4}
+  .box-info strong{color:var(--blue);font-size:10px}
+  .social{width:280px;aspect-ratio:1/1;background:var(--grad);border-radius:8px;padding:30px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 24px rgba(0,87,183,0.3)}
+  .social-top{display:flex;align-items:center;gap:10px}
+  .social-top .mark{width:24px;height:24px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .social-top span{font-family:'Manrope';font-weight:800;font-size:18px}
+  .social-mid{font-family:'Manrope';font-weight:800;font-size:32px;line-height:1.05;letter-spacing:-1px}
+  .social-mid em{font-style:normal;color:rgba(255,255,255,0.6)}
+  .social-bot{font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.8}
+  .app-info{padding:18px 22px;border-top:1px solid #eee}
+  .app-info strong{display:block;font-size:14px}
+  .app-info span{font-size:12px;color:#888;margin-top:2px;display:block}
+
+  /* ============================================
+     SLIDE 10 — ROADMAP
+     ============================================ */
+  .roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;position:relative}
+  .roadmap::before{content:"";position:absolute;top:30px;left:5%;right:5%;height:2px;background:linear-gradient(90deg,var(--blue),var(--green))}
+  .step{background:#fff;border-radius:12px;padding:24px 18px;text-align:center;border:1px solid #eee;position:relative;z-index:1}
+  .step-num{width:60px;height:60px;border-radius:50%;background:var(--grad);color:#fff;font-family:'Manrope';font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 16px rgba(0,87,183,0.2)}
+  .step h4{font-family:'Manrope';font-weight:800;font-size:14px;margin-bottom:6px;color:var(--blue)}
+  .step p{font-size:12px;color:#666;line-height:1.5}
+  .step-time{display:inline-block;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#999;margin-top:10px;padding:3px 8px;background:#fafafa;border-radius:20px;font-weight:600}
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  .footer{padding:60px 40px;background:#0d0d0d;color:#fff;text-align:center}
+  .footer-logo{display:inline-flex;align-items:center;gap:14px;font-family:'Manrope';font-weight:800;font-size:36px;letter-spacing:-1px;margin-bottom:20px}
+  .footer-logo .mark{width:30px;height:30px;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .footer p{color:#aaa;font-size:13px;max-width:700px;margin:0 auto;line-height:1.6}
+  .footer-meta{display:flex;justify-content:center;gap:30px;margin-top:30px;padding-top:30px;border-top:1px solid #222;font-size:11px;color:#666;letter-spacing:1px}
+
+  @media (max-width:900px){
+    .id-section,.portfolio-grid,.roadmap{grid-template-columns:1fr 1fr}
+    .reto-grid,.concepto-grid,.envase-grid,.label-grid,.apps-grid,.specs-row{grid-template-columns:1fr}
+    .cover-logo{font-size:60px}
+    .cover-mark{width:50px;height:50px}
+    .slide-title{font-size:32px}
+  }
+
+  @media print{
+    .nav{display:none}
+    .slide{page-break-after:always;min-height:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- === STICKY NAV === -->
+<div class="nav">
+  <div class="nav-logo">
+    <span class="nav-logo-mark"></span>SAVIA
+  </div>
+  <div class="nav-meta">PROPUESTA DE MARCA · ABRIL 2026</div>
+</div>
+
+<!-- ============================================
+     SLIDE 1 — COVER
+     ============================================ -->
+<section class="slide cover">
+  <div class="cover-eyebrow">Propuesta de marca</div>
+  <div class="cover-logo">
+    <span class="cover-mark"></span>SAVIA
+  </div>
+  <div class="cover-tag">Soluciones Agro</div>
+  <h1 class="cover-title">
+    Una marca paraguas para todas las soluciones líquidas del sector agro y alimenticio.
+    <strong>Diseñada para sustituir la línea actual de Markher.</strong>
+  </h1>
+  <div class="cover-meta">
+    <div><strong>4</strong>Categorías</div>
+    <div><strong>3</strong>Presentaciones</div>
+    <div><strong>1</strong>Sistema visual</div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 2 — EL RETO
+     ============================================ -->
+<section class="slide">
+  <div class="slide-content">
+    <div class="slide-num">01 — El reto</div>
+    <h2 class="slide-title">Por qué construir una marca propia</h2>
+    <p class="slide-subtitle">El producto actual depende de una marca y nombre comercial que no son nuestros. Ese acuerdo limita el crecimiento y nos deja sin equity de marca.</p>
+
+    <div class="reto-grid">
+      <div class="reto-points">
+        <div class="reto-point">
+          <h3>Markher es operadora</h3>
+          <p>El registro, la marca y el nombre comercial pertenecen a Operadora Markher. Cualquier crecimiento agrega valor a su marca, no a la nuestra.</p>
+        </div>
+        <div class="reto-point">
+          <h3>Lactoprev® AX está registrado</h3>
+          <p>El nombre del producto es marca registrada. No podemos seguir usándolo si decidimos producir/maquilar fuera de Markher.</p>
+        </div>
+        <div class="reto-point">
+          <h3>Limita la expansión</h3>
+          <p>Queremos meter más productos del agro (sanitizantes, conservadores, desinfectantes) bajo un mismo paraguas. Markher no es ese paraguas.</p>
+        </div>
+        <div class="reto-point">
+          <h3>Sin equity propio</h3>
+          <p>Cada peso invertido en posicionar el producto fortalece a Markher. Necesitamos construir activo de marca para nosotros.</p>
+        </div>
+      </div>
+
+      <div class="reto-visual">
+        <div style="font-size:11px;letter-spacing:3px;color:#888;text-transform:uppercase;margin-bottom:30px">Antes</div>
+        <div class="reto-visual-old">Markher · Lactoprev AX</div>
+        <div class="reto-visual-arrow">↓</div>
+        <div style="font-size:11px;letter-spacing:3px;color:#888;text-transform:uppercase;margin-bottom:20px">Después</div>
+        <div class="reto-visual-new">
+          <span class="mark"></span>SAVIA
+        </div>
+        <div style="font-size:13px;color:#aaa;margin-top:14px;letter-spacing:2px">SOLUCIONES AGRO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 3 — EL CONCEPTO
+     ============================================ -->
+<section class="slide" style="background:#fafafa">
+  <div class="slide-content">
+    <div class="slide-num">02 — El concepto</div>
+    <h2 class="slide-title">SAVIA es vida vegetal en estado puro</h2>
+    <p class="slide-subtitle">El nombre une las tres funciones del paraguas en un solo concepto narrativo: lo que la savia hace por la planta, nuestros productos lo hacen por la cosecha.</p>
+
+    <div class="concepto-grid">
+      <div class="concepto-text">
+        <h3>El significado del nombre</h3>
+        <p>La savia es el fluido que mantiene viva a la planta. Conserva. Nutre. Protege. Cada producto del paraguas SAVIA cumple una de esas tres funciones para el alimento.</p>
+        <p>Es un nombre corto (5 letras), 100% en español, agro de raíz, premium en sonido y escalable a cualquier categoría futura del agro alimenticio.</p>
+
+        <div class="concepto-three">
+          <div class="concepto-pillar">
+            <div class="concepto-pillar-icon">C</div>
+            <h4>Conserva</h4>
+            <p>Antioxidantes y conservadores</p>
+          </div>
+          <div class="concepto-pillar">
+            <div class="concepto-pillar-icon">S</div>
+            <h4>Sanitiza</h4>
+            <p>Sanitizantes grado alimenticio</p>
+          </div>
+          <div class="concepto-pillar">
+            <div class="concepto-pillar-icon">P</div>
+            <h4>Protege</h4>
+            <p>Desinfectantes de superficies</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="concepto-mark-big">
+        <span class="mark"></span>
+        <strong>SAVIA</strong>
+        <span>Soluciones Agro</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 4 — IDENTIDAD VISUAL
+     ============================================ -->
+<section class="slide">
+  <div class="slide-content">
+    <div class="slide-num">03 — Identidad</div>
+    <h2 class="slide-title">El sistema visual</h2>
+    <p class="slide-subtitle">Logo en sus formas de uso, paleta cromática y tipografía. Todo pensado para escalar a 50 productos sin perder consistencia.</p>
+
+    <div class="id-section">
+      <div class="id-tile">
+        <div class="id-display bg-grad">
+          <div class="logo-full"><span class="mark"></span>SAVIA</div>
+        </div>
+        <div class="id-info">
+          <strong>Logo principal</strong>
+          <span>Sobre fondo de marca</span>
+        </div>
+      </div>
+      <div class="id-tile">
+        <div class="id-display bg-white">
+          <div class="logo-mark-big"><span class="mark"></span></div>
+        </div>
+        <div class="id-info">
+          <strong>Solo isotipo</strong>
+          <span>Avatar, favicon, redes</span>
+        </div>
+      </div>
+      <div class="id-tile">
+        <div class="id-display bg-white">
+          <div class="logo-horiz"><span class="mark"></span>SAVIA</div>
+        </div>
+        <div class="id-info">
+          <strong>Horizontal</strong>
+          <span>Documentos, web</span>
+        </div>
+      </div>
+      <div class="id-tile">
+        <div class="id-display bg-dark">
+          <div class="logo-mono"><span class="mark"></span>SAVIA</div>
+        </div>
+        <div class="id-info">
+          <strong>Monocromática</strong>
+          <span>Vinil, sello, camiseta</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="specs-row">
+      <div class="specs-card">
+        <h3>Paleta</h3>
+        <div class="palette-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0057B7"></div>
+            <div class="swatch-info"><strong>Azul</strong><span>#0057B7</span></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#3DA935"></div>
+            <div class="swatch-info"><strong>Verde</strong><span>#3DA935</span></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:linear-gradient(135deg,#0057B7,#3DA935)"></div>
+            <div class="swatch-info"><strong>Gradiente</strong><span>Firma visual</span></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0d2c4d"></div>
+            <div class="swatch-info"><strong>Azul oscuro</strong><span>#0D2C4D</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="specs-card">
+        <h3>Tipografía</h3>
+        <div class="typo-spec">
+          <div class="typo-name">Display / Logo</div>
+          <div class="typo-display">Manrope ExtraBold</div>
+          <div class="typo-meta">Open source · Google Fonts</div>
+        </div>
+        <div class="typo-spec">
+          <div class="typo-name">Texto</div>
+          <div class="typo-display" style="font-weight:400;font-size:24px">Inter Regular</div>
+          <div class="typo-meta">Etiquetas y comunicación</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 5 — ENVASE FRENTE (REAL)
+     ============================================ -->
+<section class="slide envase-slide">
+  <div class="slide-content">
+    <div class="slide-num">04 — El envase</div>
+    <h2 class="slide-title">Así se vería el envase real</h2>
+    <p class="slide-subtitle">Render fotorealista del bote de 1L con la identidad SAVIA aplicada. Mismo formato HDPE blanco que la presentación actual de Lactoprev AX.</p>
+
+    <div class="envase-real">
+      <img src="SAVIA%20EMBASE%201.jpg" alt="SAVIA Antioxidante 1L - Vista frontal">
+    </div>
+
+    <div class="envase-callouts">
+      <div class="callout">
+        <div class="callout-num">01</div>
+        <strong>Banda gradiente azul→verde</strong>
+        <p>Firma visual del sistema. Aparece en todos los SKU del paraguas.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-num">02</div>
+        <strong>Nombre funcional</strong>
+        <p>"Antioxidante" — claro, directo, sin marca registrada de terceros.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-num">03</div>
+        <strong>Isotipo de hoja</strong>
+        <p>Refuerza el concepto de SAVIA. Único y memorable.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-num">04</div>
+        <strong>Selector 1L · 5L · 20L</strong>
+        <p>Misma etiqueta indica las 3 presentaciones disponibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 6 — ENVASE LATERAL Y FRENTE+REVERSO
+     ============================================ -->
+<section class="slide">
+  <div class="slide-content">
+    <div class="slide-num">05 — 360°</div>
+    <h2 class="slide-title">Frente, lateral y reverso</h2>
+    <p class="slide-subtitle">La etiqueta wrap-around envuelve el bote completo. El lateral conecta el frente comercial con el reverso técnico de manera limpia.</p>
+
+    <div class="envase-grid">
+      <div>
+        <img src="SAVIA%20EMBASE%202.jpg" alt="SAVIA Antioxidante 1L - Vista lateral">
+      </div>
+      <div class="envase-info">
+        <h3>Especificaciones de etiqueta</h3>
+        <ul>
+          <li><strong>Material</strong><span>BOPP blanco mate</span></li>
+          <li><strong>Acabado</strong><span>Mate + barniz UV en logo</span></li>
+          <li><strong>Impresión</strong><span>4 tintas + Pantone azul</span></li>
+          <li><strong>Resistencia</strong><span>Agua y aceite vegetal</span></li>
+          <li><strong>Dimensiones 1L</strong><span>~190 × 95 mm</span></li>
+          <li><strong>Vida útil</strong><span>2+ años</span></li>
+          <li><strong>Sangrías</strong><span>3 mm por lado</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="envase-double-img">
+      <img src="SAVIA%20EMBASE%203.jpg" alt="SAVIA Antioxidante 1L - Frente y reverso">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 7 — PORTAFOLIO
+     ============================================ -->
+<section class="slide" style="background:#fafafa">
+  <div class="slide-content">
+    <div class="slide-num">06 — Portafolio</div>
+    <h2 class="slide-title">Cómo escala la marca a 4 categorías</h2>
+    <p class="slide-subtitle">Mismo sistema visual, mismo envase HDPE, misma estructura de etiqueta. Solo cambia el descriptivo funcional. El cliente reconoce la familia al instante.</p>
+
+    <div class="portfolio-grid">
+
+      <div class="product-card">
+        <div class="product-num">01</div>
+        <div class="product-icon"></div>
+        <div class="product-name">Antioxidante</div>
+        <div class="product-cat">Para Frutas y Verduras</div>
+        <div class="product-desc">Reemplazo directo del producto actual Lactoprev AX. Misma fórmula, marca propia.</div>
+        <div class="product-status status-now">Lanzamiento Fase 1</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-num">02</div>
+        <div class="product-icon"></div>
+        <div class="product-name">Sanitizante</div>
+        <div class="product-cat">Grado Alimenticio</div>
+        <div class="product-desc">Para superficies y utensilios en contacto directo con alimentos.</div>
+        <div class="product-status status-soon">Fase 2</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-num">03</div>
+        <div class="product-icon"></div>
+        <div class="product-name">Conservador</div>
+        <div class="product-cat">Líquido para Alimentos</div>
+        <div class="product-desc">Extensión de vida útil para productos frescos en cadena fría.</div>
+        <div class="product-status status-soon">Fase 2</div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-num">04</div>
+        <div class="product-icon"></div>
+        <div class="product-name">Desinfectante</div>
+        <div class="product-cat">Superficies y Equipos</div>
+        <div class="product-desc">Para áreas de proceso, equipos industriales y zonas indirectas.</div>
+        <div class="product-status status-soon">Fase 3</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 8 — ETIQUETA TÉCNICA
+     ============================================ -->
+<section class="slide">
+  <div class="slide-content">
+    <div class="slide-num">07 — Etiqueta</div>
+    <h2 class="slide-title">Frente y reverso a tamaño completo</h2>
+    <p class="slide-subtitle">La etiqueta lleva toda la información técnica que la NOM-051 y los estándares Kosher exigen, pero estructurada de forma legible y profesional.</p>
+
+    <div class="label-grid">
+
+      <div class="label-panel label-front">
+        <div class="label-front-top">
+          <div class="lf-brand"><span class="mark"></span>SAVIA</div>
+          <div class="lf-tag">SOLUCIONES AGRO</div>
+        </div>
+        <div class="label-front-bottom">
+          <div class="lf-product">Antioxidante</div>
+          <div class="lf-cat">Para Frutas y Verduras</div>
+          <div class="lf-desc">Prolonga la vida útil, conserva el color natural y la textura de productos recién cortados.</div>
+          <div class="lf-sizes">
+            <span class="active">1L</span>
+            <span>5L</span>
+            <span>20L</span>
+          </div>
+          <div class="lf-foot">
+            <small>CONTENIDO NETO 1 LITRO</small>
+            <div class="lf-kosher">K</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="label-panel label-back">
+
+        <div class="lb-section">
+          <div class="lb-title">Descripción</div>
+          <div class="lb-text">Antioxidante de uso alimenticio para frutas y vegetales. Evita el oscurecimiento, mantiene la textura y conserva el sabor natural de productos recién cortados.</div>
+        </div>
+
+        <div class="lb-section">
+          <div class="lb-title">Características</div>
+          <ul class="lb-list lb-text">
+            <li>Prolonga la vida útil entre 3 y 7 días</li>
+            <li>Mantiene sabor, textura y color natural</li>
+            <li>Previene la deshidratación</li>
+            <li>Reduce notablemente los desperdicios</li>
+            <li>Certificado Kosher</li>
+          </ul>
+        </div>
+
+        <div class="lb-section">
+          <div class="lb-title">Usos y Dosificación</div>
+          <div class="lb-table">
+            <div class="col">Guacamole / salsas</div>
+            <div class="col">10 ml por kilo de preparado</div>
+            <div class="col">Rebanadas delicadas</div>
+            <div class="col">Aplicar con atomizador</div>
+            <div class="col">F&V en general</div>
+            <div class="col">10 ml por litro de agua, 5 min</div>
+            <div class="col">Decoración / postres</div>
+            <div class="col">50% SAVIA + 50% agua, atomizar</div>
+          </div>
+        </div>
+
+        <div class="lb-section">
+          <div class="lb-title">Precauciones</div>
+          <div class="lb-warn">
+            <div class="lb-warn-icon"><span>!</span></div>
+            <div class="lb-text">
+              <strong>Ocular:</strong> agua 15 min · <strong>Dérmico:</strong> agua y jabón · <strong>Ingestión:</strong> enjuagar boca y beber agua. Consultar médico.
+            </div>
+          </div>
+        </div>
+
+        <div class="lb-section">
+          <div class="lb-title">Información Legal</div>
+          <div class="lb-text" style="font-size:10px;color:#666">
+            <strong>Ingredientes:</strong> mezcla de sales minerales<br>
+            <strong>Productor:</strong> [Tu empresa] S de R.L. de C.V.<br>
+            [Dirección de tu planta/almacén]<br>
+            Tel: [Tu teléfono] · savia.mx
+          </div>
+        </div>
+
+        <div class="lb-foot">
+          <span>Lote y caducidad: ver envase</span>
+          <div class="barcode">7503028</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 9 — APLICACIONES
+     ============================================ -->
+<section class="slide" style="background:#fafafa">
+  <div class="slide-content">
+    <div class="slide-num">08 — Aplicaciones</div>
+    <h2 class="slide-title">La marca en otros tocapuntos</h2>
+    <p class="slide-subtitle">Caja secundaria de envío y plantilla de comunicación digital. La identidad se mantiene consistente en cada superficie.</p>
+
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <div class="app-display" style="background:#f0f0f0">
+          <div class="box">
+            <div class="box-side">
+              <div class="box-band"><span class="box-band-mark"></span>SAVIA</div>
+              <div class="box-info"><strong>Antioxidante 1L</strong><br>12 unidades · Lote: ___<br>FRÁGIL · MANTENER SECO</div>
+            </div>
+          </div>
+        </div>
+        <div class="app-info">
+          <strong>Caja secundaria de envío</strong>
+          <span>12 botellas de 1L · cartón corrugado natural</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-display" style="background:#fff"><div class="social"><div class="social-top"><span class="mark"></span><span>SAVIA</span></div><div class="social-mid">Conserva tu producto.<br><em>Reduce tu merma.</em></div><div class="social-bot">SOLUCIONES AGRO · MX</div></div></div>
+        <div class="app-info">
+          <strong>Post Instagram / LinkedIn</strong>
+          <span>Plantilla 1:1 para campañas B2B</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 10 — ROADMAP
+     ============================================ -->
+<section class="slide">
+  <div class="slide-content">
+    <div class="slide-num">09 — Próximos pasos</div>
+    <h2 class="slide-title">Cómo llevamos esto a producción</h2>
+    <p class="slide-subtitle">5 pasos para tener el primer lote de SAVIA Antioxidante 1L en almacén con identidad propia.</p>
+
+    <div class="roadmap">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Validar marca</h4>
+        <p>Búsqueda en IMPI México y registro fonético del nombre SAVIA.</p>
+        <div class="step-time">Semana 1</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Vectorizar logo</h4>
+        <p>Logo final en Adobe Illustrator + manual de marca corto.</p>
+        <div class="step-time">Semana 2</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Dieline y cotización</h4>
+        <p>Plano técnico de etiqueta + 3 cotizaciones de imprenta.</p>
+        <div class="step-time">Semana 3</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Negociar maquila</h4>
+        <p>Acuerdo con productor (Markher u otro) para reetiquetado.</p>
+        <div class="step-time">Semana 3-4</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h4>Primer lote</h4>
+        <p>Producción de muestras + validación interna y kosher.</p>
+        <div class="step-time">Semana 5-6</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="footer-logo">
+    <span class="mark"></span>SAVIA
+  </div>
+  <p>Propuesta de marca paraguas agro · Versión 1.0 · Abril 2026<br>Documento conceptual para aprobación interna y planificación de producción.</p>
+  <div class="footer-meta">
+    <span>NAMING · SAVIA</span>
+    <span>DIRECCIÓN · MODERN AGRO</span>
+    <span>NAMING SYSTEM · OPCIÓN A</span>
+  </div>
+</footer>
+
+</body>
+</html>

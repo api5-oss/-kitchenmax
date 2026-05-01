@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>SAVIA — Manual de Identidad de Marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#0057B7;
+    --green:#3DA935;
+    --dark:#0d2c4d;
+    --gray:#f0f0f0;
+    --grad:linear-gradient(135deg,#0057B7 0%,#3DA935 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:#e8e8e8;color:#0d0d0d;line-height:1.5;padding:30px 0}
+
+  /* === A4 PAGE FORMAT === */
+  .page{
+    width:210mm;min-height:297mm;
+    background:#fff;
+    margin:0 auto 30px;
+    padding:25mm 22mm;
+    box-shadow:0 6px 30px rgba(0,0,0,0.08);
+    position:relative;
+    page-break-after:always;
+    display:flex;flex-direction:column;
+  }
+  .page-header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-bottom:10mm;
+    border-bottom:1px solid #eee;
+    font-size:9pt;color:#888;letter-spacing:1px;
+  }
+  .page-header-logo{display:flex;align-items:center;gap:8px;font-family:'Manrope';font-weight:800;font-size:12pt;color:var(--blue);letter-spacing:-0.5px}
+  .page-header-logo .mark{width:14px;height:14px;background:var(--grad);border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .page-content{flex:1;padding:14mm 0 8mm}
+  .page-footer{
+    border-top:1px solid #eee;padding-top:6mm;
+    display:flex;justify-content:space-between;
+    font-size:8pt;color:#aaa;letter-spacing:0.5px;
+  }
+
+  /* === TYPOGRAPHY === */
+  .section-num{font-size:9pt;letter-spacing:3px;color:var(--blue);font-weight:700;text-transform:uppercase;margin-bottom:8mm}
+  h1{font-family:'Manrope';font-weight:800;font-size:36pt;letter-spacing:-1.5px;line-height:1;color:#0d0d0d}
+  h2{font-family:'Manrope';font-weight:800;font-size:22pt;letter-spacing:-0.8px;line-height:1.1;color:#0d0d0d;margin-bottom:6mm}
+  h3{font-family:'Manrope';font-weight:700;font-size:13pt;color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4mm}
+  h4{font-family:'Manrope';font-weight:700;font-size:11pt;margin-bottom:2mm}
+  p{font-size:10pt;color:#333;margin-bottom:4mm;line-height:1.65}
+  .lead{font-size:14pt;color:#444;line-height:1.5;font-weight:300;font-family:'Manrope';margin-bottom:10mm}
+  .meta{font-size:9pt;color:#888;letter-spacing:1px;text-transform:uppercase}
+
+  /* === COVER === */
+  .cover{background:var(--grad);color:#fff;padding:0;border:none;box-shadow:0 6px 30px rgba(0,87,183,0.3)}
+  .cover-inner{padding:45mm 22mm 25mm;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+  .cover-eyebrow{font-size:11pt;letter-spacing:6px;text-transform:uppercase;opacity:0.9}
+  .cover-mid{margin:auto 0}
+  .cover-logo{display:flex;align-items:center;gap:12mm;font-family:'Manrope';font-weight:800;font-size:90pt;letter-spacing:-3px;line-height:1;margin-bottom:8mm}
+  .cover-mark{width:24mm;height:24mm;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+  .cover-title{font-family:'Manrope';font-size:24pt;font-weight:300;line-height:1.3;letter-spacing:-0.5px;max-width:75%}
+  .cover-title strong{font-weight:800;display:block;margin-top:4mm}
+  .cover-bottom{display:flex;justify-content:space-between;align-items:flex-end;font-size:10pt;letter-spacing:1px}
+  .cover-version{opacity:0.85}
+
+  /* === INDEX === */
+  .toc{margin-top:10mm}
+  .toc-row{display:flex;align-items:baseline;gap:6mm;padding:4mm 0;border-bottom:1px dotted #ddd;font-family:'Manrope'}
+  .toc-row .num{font-weight:800;font-size:14pt;color:var(--blue);width:14mm;font-feature-settings:'tnum'}
+  .toc-row .name{flex:1;font-size:13pt;font-weight:500;color:#0d0d0d}
+  .toc-row .pg{font-size:11pt;color:#888;font-weight:300}
+
+  /* === LOGO PAGES === */
+  .logo-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:6mm}
+  .logo-tile{border-radius:4px;overflow:hidden;border:1px solid #eee}
+  .logo-tile-display{aspect-ratio:1.6/1;display:flex;align-items:center;justify-content:center;padding:8mm}
+  .logo-tile-info{padding:4mm 6mm;border-top:1px solid #eee;font-size:9pt}
+  .logo-tile-info strong{display:block;font-family:'Manrope';font-weight:700;font-size:10pt;margin-bottom:1mm}
+  .logo-tile-info span{color:#888;font-family:monospace;font-size:8pt}
+
+  .logo-full{font-family:'Manrope';font-weight:800;font-size:32pt;color:#fff;letter-spacing:-1px;display:flex;align-items:center;gap:5mm}
+  .logo-full .mark{width:8mm;height:8mm;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .logo-mark-big{width:24mm;height:24mm;background:var(--grad);border-radius:5mm;display:flex;align-items:center;justify-content:center}
+  .logo-mark-big .mark{width:12mm;height:12mm;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .logo-horiz{font-family:'Manrope';font-weight:800;font-size:28pt;color:var(--blue);letter-spacing:-1px;display:flex;align-items:center;gap:4mm}
+  .logo-horiz .mark{width:7mm;height:7mm;background:var(--grad);border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .logo-mono{font-family:'Manrope';font-weight:800;font-size:32pt;color:#fff;letter-spacing:-1px;display:flex;align-items:center;gap:5mm}
+  .logo-mono .mark{width:8mm;height:8mm;background:#fff;border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+
+  .bg-grad{background:var(--grad)}
+  .bg-white{background:#fff;border:1px solid #f0f0f0}
+  .bg-dark{background:#0d2c4d}
+
+  /* === CONSTRUCTION GRID === */
+  .construction-canvas{
+    background:#fafafa;border:1px dashed #ccc;
+    padding:10mm;margin:6mm 0;
+    position:relative;height:100mm;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .grid-bg{
+    position:absolute;inset:10mm;
+    background-image:
+      linear-gradient(rgba(0,87,183,0.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,87,183,0.08) 1px,transparent 1px);
+    background-size:8mm 8mm;
+  }
+  .construction-logo{position:relative;z-index:1;display:flex;align-items:center;gap:5mm}
+  .construction-logo .mark{width:24mm;height:24mm;background:var(--grad);border-radius:0 50% 0 50%;transform:rotate(-15deg)}
+  .construction-logo .word{font-family:'Manrope';font-weight:800;font-size:42pt;color:var(--blue);letter-spacing:-2px;line-height:1}
+  .measure{position:absolute;font-family:monospace;font-size:7pt;color:var(--blue);background:#fff;padding:1mm 2mm;border-radius:2px;border:1px solid var(--blue);font-weight:700}
+
+  /* === SAFETY AREA === */
+  .safety-canvas{
+    background:#fafafa;padding:10mm;
+    height:100mm;display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .safety-zone{
+    background:transparent;
+    border:2px dashed var(--green);
+    padding:14mm;
+    position:relative;
+  }
+  .safety-zone::before,.safety-zone::after{
+    content:"x";position:absolute;
+    font-size:8pt;color:var(--green);font-weight:700;font-family:monospace;
+  }
+  .safety-zone::before{top:-3mm;left:50%;transform:translateX(-50%);background:#fafafa;padding:0 2mm}
+  .safety-zone::after{bottom:-3mm;left:50%;transform:translateX(-50%);background:#fafafa;padding:0 2mm}
+
+  /* === MIN SIZES === */
+  .sizes-row{display:flex;gap:8mm;align-items:flex-end;margin-top:6mm;padding:8mm;background:#fafafa;border-radius:4px;justify-content:center}
+  .size-card{text-align:center}
+  .size-card .label{font-size:8pt;color:#888;letter-spacing:1px;text-transform:uppercase;margin-top:3mm;font-weight:600}
+  .size-card .val{font-family:monospace;font-size:8pt;color:var(--blue);margin-top:1mm}
+  .size-1{width:30mm}
+  .size-2{width:50mm}
+  .size-3{width:75mm}
+
+  /* === DO/DONT === */
+  .do-grid{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:6mm}
+  .do-tile{border-radius:4px;overflow:hidden;border:1px solid #eee}
+  .do-display{aspect-ratio:1.4/1;display:flex;align-items:center;justify-content:center;padding:6mm;background:#fafafa;position:relative}
+  .do-mark{font-family:'Manrope';font-weight:800;font-size:11pt;padding:3mm 5mm;color:#fff;text-align:center;letter-spacing:1px}
+  .do-yes{background:#3DA935}
+  .do-no{background:#d63638}
+  .do-info{padding:3mm 5mm;font-size:9pt;color:#666}
+
+  /* Bad examples */
+  .ex-stretch{transform:scaleX(1.5)}
+  .ex-rotate{transform:rotate(20deg)}
+  .ex-color{filter:hue-rotate(180deg)}
+  .ex-shadow{filter:drop-shadow(2px 2px 0 #f00)}
+
+  /* === PALETTE === */
+  .palette-main{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:6mm}
+  .palette-card{border-radius:4px;overflow:hidden;border:1px solid #eee}
+  .palette-color{height:50mm}
+  .palette-info{padding:5mm}
+  .palette-info h4{font-family:'Manrope';font-weight:700;font-size:14pt;margin-bottom:2mm}
+  .palette-codes{display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-top:3mm;font-family:monospace;font-size:9pt}
+  .palette-codes div span{color:#888;font-size:8pt;display:block;letter-spacing:1px;margin-bottom:0.5mm}
+  .palette-codes div strong{color:#0d0d0d;font-weight:600}
+
+  .palette-grad-card{margin-top:6mm;border-radius:4px;overflow:hidden;border:1px solid #eee}
+  .palette-grad-display{height:30mm;background:var(--grad)}
+  .palette-grad-info{padding:5mm;background:#fff}
+
+  /* === TYPOGRAPHY === */
+  .typo-card{margin-top:6mm;padding:8mm;background:#fafafa;border-radius:4px;border-left:4px solid var(--blue)}
+  .typo-card .role{font-size:8pt;letter-spacing:2px;color:var(--blue);text-transform:uppercase;font-weight:700;margin-bottom:2mm}
+  .typo-name{font-family:'Manrope';font-size:36pt;line-height:1;letter-spacing:-1.5px;color:#0d0d0d;margin-bottom:3mm}
+  .typo-weights{display:flex;gap:5mm;font-family:'Manrope';font-size:11pt;color:#666;flex-wrap:wrap;margin-top:3mm}
+  .typo-weights span{padding:1mm 3mm;background:#fff;border-radius:2px;border:1px solid #eee}
+  .typo-meta{font-size:8pt;color:#888;font-family:monospace;margin-top:3mm}
+
+  .specimen{font-family:'Manrope';font-size:48pt;font-weight:800;letter-spacing:-2px;line-height:1;color:#0d0d0d;margin:4mm 0}
+  .specimen-2{font-family:'Inter';font-size:18pt;font-weight:400;color:#0d0d0d;margin-top:6mm;line-height:1.4}
+
+  /* === VOICE === */
+  .voice-do-dont{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:6mm}
+  .voice-card{padding:6mm;border-radius:4px;border-left:4px solid}
+  .voice-yes{background:#f0faf0;border-color:var(--green)}
+  .voice-no{background:#fff5f5;border-color:#d63638}
+  .voice-card h4{font-size:10pt;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:3mm}
+  .voice-yes h4{color:var(--green)}
+  .voice-no h4{color:#d63638}
+  .voice-card p{font-size:11pt;font-style:italic;color:#333;line-height:1.5}
+
+  .voice-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin-top:6mm}
+  .voice-pillar{padding:5mm;background:#fafafa;border-radius:4px;text-align:center}
+  .voice-pillar h4{font-family:'Manrope';font-weight:800;color:var(--blue);font-size:13pt;margin-bottom:2mm}
+  .voice-pillar p{font-size:8pt;color:#666;margin:0;line-height:1.4}
+
+  /* === CONTACT === */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8mm;margin-top:8mm}
+  .contact-card h3{font-family:'Manrope';font-weight:700;font-size:11pt;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:3mm}
+  .contact-card p{font-size:11pt;line-height:1.7}
+
+  @media print{
+    body{background:#fff;padding:0}
+    .page{margin:0;box-shadow:none;page-break-after:always}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     PAGE 1 — COVER
+     ============================================ -->
+<div class="page cover">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">Manual de Identidad de Marca</div>
+
+    <div class="cover-mid">
+      <div class="cover-logo">
+        <span class="cover-mark"></span>SAVIA
+      </div>
+      <div class="cover-title">
+        Sistema de marca paraguas para soluciones agro y alimenticias.
+        <strong>Versión 1.0 · Abril 2026</strong>
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-version">Documento interno · No distribuir sin autorización</div>
+      <div>1 / 12</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 2 — ÍNDICE
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>MANUAL DE IDENTIDAD · ABRIL 2026</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">Índice</div>
+    <h1>Contenido</h1>
+
+    <div class="toc">
+      <div class="toc-row"><span class="num">01</span><span class="name">La marca</span><span class="pg">03</span></div>
+      <div class="toc-row"><span class="num">02</span><span class="name">El logo · sistema completo</span><span class="pg">04</span></div>
+      <div class="toc-row"><span class="num">03</span><span class="name">Construcción y proporciones</span><span class="pg">05</span></div>
+      <div class="toc-row"><span class="num">04</span><span class="name">Área de seguridad y tamaños mínimos</span><span class="pg">06</span></div>
+      <div class="toc-row"><span class="num">05</span><span class="name">Usos correctos e incorrectos</span><span class="pg">07</span></div>
+      <div class="toc-row"><span class="num">06</span><span class="name">Paleta de colores</span><span class="pg">08</span></div>
+      <div class="toc-row"><span class="num">07</span><span class="name">Tipografía</span><span class="pg">09</span></div>
+      <div class="toc-row"><span class="num">08</span><span class="name">Tono de voz</span><span class="pg">10</span></div>
+      <div class="toc-row"><span class="num">09</span><span class="name">Aplicaciones</span><span class="pg">11</span></div>
+      <div class="toc-row"><span class="num">10</span><span class="name">Contacto y archivos</span><span class="pg">12</span></div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>2 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 3 — LA MARCA
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>01 · LA MARCA</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">01 — La marca</div>
+    <h1>La savia es vida vegetal en estado puro.</h1>
+    <p class="lead">Lo que la savia hace por la planta, nuestros productos lo hacen por la cosecha y por el alimento.</p>
+
+    <h3>Propósito</h3>
+    <p>SAVIA existe para extender la vida útil de los alimentos en la cadena de procesado, conservación y servicio. Convertimos lo que antes era merma en producto vendible.</p>
+
+    <h3>Esencia</h3>
+    <p>Conserva. Sanitiza. Protege. Tres funciones, una sola marca paraguas. Cada SKU bajo SAVIA cumple una de estas tres acciones para el alimento.</p>
+
+    <h3>Personalidad</h3>
+    <p>Técnica pero cálida. Industrial pero humana. Nuestros clientes son procesadores serios — chefs corporativos, gerentes de planta, fruteros mayoristas. Hablamos como ellos: sin adornos, con datos, con respeto al oficio.</p>
+
+    <h3>Valores</h3>
+    <p><strong>Eficacia probada</strong> · cada producto se respalda con dosificación medible y testeada.<br>
+       <strong>Calidad alimentaria</strong> · grado food, kosher cuando aplica, sin atajos.<br>
+       <strong>Transparencia</strong> · ingredientes claros, dosis explícitas, sin promesas vacías.<br>
+       <strong>Escalabilidad</strong> · una marca que aguante 4, 10 o 50 productos sin perder consistencia.</p>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>3 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 4 — LOGO SISTEMA
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>02 · LOGO</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">02 — Logo</div>
+    <h1>El logo en sus formas de uso.</h1>
+    <p class="lead">El sistema contempla cuatro versiones para cubrir todos los contextos. Usar siempre la versión apropiada al fondo y formato.</p>
+
+    <div class="logo-grid-2">
+      <div class="logo-tile">
+        <div class="logo-tile-display bg-grad">
+          <div class="logo-full"><span class="mark"></span>SAVIA</div>
+        </div>
+        <div class="logo-tile-info">
+          <strong>Logo principal</strong>
+          <span>Sobre fondo de marca · gradiente</span>
+        </div>
+      </div>
+      <div class="logo-tile">
+        <div class="logo-tile-display bg-white">
+          <div class="logo-mark-big"><span class="mark"></span></div>
+        </div>
+        <div class="logo-tile-info">
+          <strong>Solo isotipo</strong>
+          <span>Avatar, favicon, redes sociales</span>
+        </div>
+      </div>
+      <div class="logo-tile">
+        <div class="logo-tile-display bg-white">
+          <div class="logo-horiz"><span class="mark"></span>SAVIA</div>
+        </div>
+        <div class="logo-tile-info">
+          <strong>Horizontal a color</strong>
+          <span>Documentos, web, facturas</span>
+        </div>
+      </div>
+      <div class="logo-tile">
+        <div class="logo-tile-display bg-dark">
+          <div class="logo-mono"><span class="mark"></span>SAVIA</div>
+        </div>
+        <div class="logo-tile-info">
+          <strong>Monocromática blanca</strong>
+          <span>Vinil, sello, camiseta, fondo oscuro</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:8mm">Archivos disponibles</h3>
+    <p style="font-family:monospace;font-size:9pt;background:#fafafa;padding:4mm;border-radius:3px">
+      SAVIA-logo-color.svg<br>
+      SAVIA-logo-blanco.svg<br>
+      SAVIA-isotipo-color.svg<br>
+      SAVIA-isotipo-blanco.svg
+    </p>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>4 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 5 — CONSTRUCCIÓN
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>03 · CONSTRUCCIÓN</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">03 — Construcción</div>
+    <h1>Geometría y proporciones.</h1>
+    <p class="lead">El logo está construido sobre una retícula modular. Mantener siempre estas proporciones — no estirar, comprimir ni reposicionar elementos.</p>
+
+    <div class="construction-canvas">
+      <div class="grid-bg"></div>
+      <div class="construction-logo">
+        <span class="mark"></span>
+        <span class="word">SAVIA</span>
+      </div>
+      <div class="measure" style="top:8mm;left:50%;transform:translateX(-50%)">altura X</div>
+      <div class="measure" style="top:50%;right:8mm;transform:translateY(-50%)">x · 1.0</div>
+      <div class="measure" style="bottom:8mm;left:50%;transform:translateX(-50%)">separación = 0.5x</div>
+    </div>
+
+    <h3>Reglas de construcción</h3>
+    <p><strong>1. Proporción del isotipo:</strong> el isotipo (la hoja) ocupa una unidad cuadrada llamada "x". Esta es la unidad base de todo el sistema.</p>
+    <p><strong>2. Altura del wordmark:</strong> "SAVIA" tiene la misma altura que el isotipo (1x). Tipografía Manrope ExtraBold (800), letter-spacing -3.</p>
+    <p><strong>3. Separación isotipo-wordmark:</strong> 0.5x entre el borde derecho del isotipo y la primera letra "S".</p>
+    <p><strong>4. Inclinación del isotipo:</strong> rotación fija de -15° respecto al eje horizontal.</p>
+    <p><strong>5. Curvas del isotipo:</strong> dos esquinas en arco de 90° (radio = 0.5x), dos esquinas a 90° rectos.</p>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>5 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 6 — ÁREA SEGURIDAD + TAMAÑOS
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>04 · ESPACIOS</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">04 — Área de seguridad</div>
+    <h2>El logo necesita aire alrededor.</h2>
+    <p>Mantener un margen mínimo equivalente a "x" (la altura del isotipo) en cada lado. Ningún elemento gráfico, texto ni borde debe invadir esta zona.</p>
+
+    <div class="safety-canvas">
+      <div class="safety-zone">
+        <div class="construction-logo" style="gap:3mm">
+          <span class="mark" style="width:18mm;height:18mm;background:var(--grad);border-radius:0 50% 0 50%;transform:rotate(-15deg)"></span>
+          <span class="word" style="font-size:32pt">SAVIA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-num" style="margin-top:10mm">04 — Tamaños mínimos</div>
+    <h2>Por debajo de estos tamaños, el logo pierde legibilidad.</h2>
+    <p>No usar el logo principal por debajo de 25 mm de ancho en impresión, ni 80 px en pantalla. Para tamaños menores, usar solo el isotipo.</p>
+
+    <div class="sizes-row">
+      <div class="size-card">
+        <div class="size-1"><div class="logo-horiz" style="font-size:14pt;gap:2mm"><span class="mark" style="width:4mm;height:4mm"></span>SAVIA</div></div>
+        <div class="label">Mínimo</div>
+        <div class="val">25mm · 80px</div>
+      </div>
+      <div class="size-card">
+        <div class="size-2"><div class="logo-horiz" style="font-size:22pt;gap:3mm"><span class="mark" style="width:6mm;height:6mm"></span>SAVIA</div></div>
+        <div class="label">Estándar</div>
+        <div class="val">50mm · 160px</div>
+      </div>
+      <div class="size-card">
+        <div class="size-3"><div class="logo-horiz" style="font-size:32pt;gap:4mm"><span class="mark" style="width:9mm;height:9mm"></span>SAVIA</div></div>
+        <div class="label">Aplicación grande</div>
+        <div class="val">75mm+ · 240px+</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>6 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 7 — DO/DONT
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>05 · USOS</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">05 — Usos correctos e incorrectos</div>
+    <h1>Qué sí y qué no.</h1>
+    <p class="lead">El logo es un activo de la marca. No alterar nunca su forma, color o composición fuera de lo establecido en este manual.</p>
+
+    <div class="do-grid">
+      <div class="do-tile">
+        <div class="do-display">
+          <div class="logo-horiz" style="font-size:24pt"><span class="mark" style="width:6mm;height:6mm"></span>SAVIA</div>
+        </div>
+        <div class="do-mark do-yes">SÍ · Versión oficial color</div>
+        <div class="do-info">Sobre fondos claros y neutros.</div>
+      </div>
+
+      <div class="do-tile">
+        <div class="do-display" style="background:var(--grad)">
+          <div class="logo-mono" style="font-size:24pt"><span class="mark" style="width:6mm;height:6mm"></span>SAVIA</div>
+        </div>
+        <div class="do-mark do-yes">SÍ · Blanco sobre gradiente</div>
+        <div class="do-info">En fondos de marca, banda principal.</div>
+      </div>
+
+      <div class="do-tile">
+        <div class="do-display">
+          <div class="logo-horiz ex-stretch" style="font-size:24pt"><span class="mark" style="width:6mm;height:6mm"></span>SAVIA</div>
+        </div>
+        <div class="do-mark do-no">NO · Estirar o deformar</div>
+        <div class="do-info">Mantener siempre la proporción original.</div>
+      </div>
+
+      <div class="do-tile">
+        <div class="do-display">
+          <div class="logo-horiz ex-rotate" style="font-size:24pt"><span class="mark" style="width:6mm;height:6mm"></span>SAVIA</div>
+        </div>
+        <div class="do-mark do-no">NO · Rotar el conjunto</div>
+        <div class="do-info">Solo el isotipo lleva inclinación. El logo siempre horizontal.</div>
+      </div>
+
+      <div class="do-tile">
+        <div class="do-display">
+          <div class="logo-horiz" style="font-size:24pt;color:#d63638"><span class="mark" style="width:6mm;height:6mm;background:#d63638"></span>SAVIA</div>
+        </div>
+        <div class="do-mark do-no">NO · Cambiar los colores</div>
+        <div class="do-info">Solo gradiente azul-verde, blanco o azul oscuro corporativo.</div>
+      </div>
+
+      <div class="do-tile">
+        <div class="do-display">
+          <div class="logo-horiz ex-shadow" style="font-size:24pt"><span class="mark" style="width:6mm;height:6mm"></span>SAVIA</div>
+        </div>
+        <div class="do-mark do-no">NO · Agregar efectos</div>
+        <div class="do-info">Sin sombras, brillos, contornos ni texturas.</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>7 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 8 — PALETA
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>06 · PALETA</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">06 — Paleta de colores</div>
+    <h1>Dos colores base, un gradiente firma.</h1>
+    <p class="lead">El gradiente azul-verde es la firma visual del sistema. Los dos colores planos se usan como soporte cuando el gradiente no es viable.</p>
+
+    <div class="palette-main">
+      <div class="palette-card">
+        <div class="palette-color" style="background:#0057B7"></div>
+        <div class="palette-info">
+          <h4>Azul SAVIA</h4>
+          <span class="meta">Primario · cuerpo de texto y marca</span>
+          <div class="palette-codes">
+            <div><span>HEX</span><strong>#0057B7</strong></div>
+            <div><span>RGB</span><strong>0 · 87 · 183</strong></div>
+            <div><span>CMYK</span><strong>100 · 76 · 0 · 6</strong></div>
+            <div><span>PANTONE</span><strong>2935 C</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="palette-card">
+        <div class="palette-color" style="background:#3DA935"></div>
+        <div class="palette-info">
+          <h4>Verde Hoja</h4>
+          <span class="meta">Primario · acento y categorías</span>
+          <div class="palette-codes">
+            <div><span>HEX</span><strong>#3DA935</strong></div>
+            <div><span>RGB</span><strong>61 · 169 · 53</strong></div>
+            <div><span>CMYK</span><strong>74 · 0 · 100 · 0</strong></div>
+            <div><span>PANTONE</span><strong>362 C</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-grad-card">
+      <div class="palette-grad-display"></div>
+      <div class="palette-grad-info">
+        <h4>Gradiente firma</h4>
+        <span class="meta">135° · Azul SAVIA → Verde Hoja</span>
+        <p style="margin-top:3mm;font-size:10pt">Uso obligatorio en banda superior de etiqueta. Opcional en piezas de comunicación digital y aplicaciones de impacto.</p>
+      </div>
+    </div>
+
+    <div class="palette-main" style="margin-top:6mm">
+      <div class="palette-card">
+        <div class="palette-color" style="background:#0d2c4d;height:25mm"></div>
+        <div class="palette-info">
+          <h4 style="font-size:12pt">Azul oscuro</h4>
+          <span class="meta">Secundario · titulares, fondo</span>
+          <div class="palette-codes">
+            <div><span>HEX</span><strong>#0D2C4D</strong></div>
+            <div><span>PANTONE</span><strong>2766 C</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="palette-color" style="background:#0d0d0d;height:25mm"></div>
+        <div class="palette-info">
+          <h4 style="font-size:12pt">Negro grafito</h4>
+          <span class="meta">Texto técnico · información legal</span>
+          <div class="palette-codes">
+            <div><span>HEX</span><strong>#0D0D0D</strong></div>
+            <div><span>PANTONE</span><strong>Black 6 C</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>8 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 9 — TIPOGRAFÍA
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>07 · TIPOGRAFÍA</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">07 — Tipografía</div>
+    <h1>Dos familias. Sistema simple.</h1>
+    <p class="lead">Manrope para titulares y marca. Inter para texto técnico y comunicación. Ambas open source vía Google Fonts.</p>
+
+    <div class="typo-card">
+      <div class="role">Display · Logo · Titulares</div>
+      <div class="typo-name">Manrope ExtraBold</div>
+      <div class="specimen">Aa Bb 123</div>
+      <div class="typo-weights">
+        <span style="font-weight:300">Light 300</span>
+        <span style="font-weight:500">Medium 500</span>
+        <span style="font-weight:700">Bold 700</span>
+        <span style="font-weight:800">ExtraBold 800</span>
+      </div>
+      <div class="typo-meta">Open source · fonts.google.com/specimen/Manrope</div>
+    </div>
+
+    <div class="typo-card" style="border-left-color:var(--green)">
+      <div class="role" style="color:var(--green)">Cuerpo · Texto técnico · Etiquetas</div>
+      <div class="typo-name">Inter Regular</div>
+      <div class="specimen-2">El antioxidante prolonga la vida útil 3 a 7 días, conserva sabor, textura y color natural de los productos recién cortados.</div>
+      <div class="typo-weights">
+        <span style="font-family:'Inter';font-weight:400">Regular 400</span>
+        <span style="font-family:'Inter';font-weight:500">Medium 500</span>
+        <span style="font-family:'Inter';font-weight:600">SemiBold 600</span>
+        <span style="font-family:'Inter';font-weight:700">Bold 700</span>
+      </div>
+      <div class="typo-meta">Open source · fonts.google.com/specimen/Inter</div>
+    </div>
+
+    <h3 style="margin-top:6mm">Reglas de uso</h3>
+    <p><strong>Titulares:</strong> Manrope 800, letter-spacing -0.5 a -2 px según tamaño.</p>
+    <p><strong>Subtítulos:</strong> Manrope 700.</p>
+    <p><strong>Cuerpo de texto:</strong> Inter 400 o 500. Interlineado 1.5 a 1.7.</p>
+    <p><strong>Etiquetas y categorías:</strong> Inter 600-700, all caps, letter-spacing 1.5 a 3 px.</p>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>9 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 10 — TONO DE VOZ
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>08 · TONO DE VOZ</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">08 — Tono de voz</div>
+    <h1>Cómo escribe SAVIA.</h1>
+    <p class="lead">Hablamos como un técnico que respeta el oficio del cliente. Datos en lugar de adjetivos, dosis en lugar de promesas, resultados en lugar de adornos.</p>
+
+    <div class="voice-pillars">
+      <div class="voice-pillar">
+        <h4>Claro</h4>
+        <p>Frases cortas, lenguaje directo, sin jerga innecesaria.</p>
+      </div>
+      <div class="voice-pillar">
+        <h4>Técnico</h4>
+        <p>Datos medibles. Dosis, tiempos, porcentajes.</p>
+      </div>
+      <div class="voice-pillar">
+        <h4>Honesto</h4>
+        <p>Lo que el producto hace y lo que no. Sin promesas vacías.</p>
+      </div>
+      <div class="voice-pillar">
+        <h4>Profesional</h4>
+        <p>Cliente B2B serio. Cero coloquialismos, cero emojis.</p>
+      </div>
+    </div>
+
+    <div class="voice-do-dont">
+      <div class="voice-card voice-yes">
+        <h4>Sí — Así escribe SAVIA</h4>
+        <p>"Prolonga la vida útil entre 3 y 7 días con dosificación de 10 ml por kilo."</p>
+        <p>"Reduce notablemente la merma sin alterar sabor ni textura."</p>
+        <p>"Certificado Kosher. Mezcla de sales minerales grado alimenticio."</p>
+      </div>
+      <div class="voice-card voice-no">
+        <h4>No — Así NO escribe SAVIA</h4>
+        <p>"¡El mejor antioxidante del mercado! Frescura garantizada."</p>
+        <p>"Conserva tus alimentos como nunca antes con esta súper fórmula."</p>
+        <p>"100% natural, libre de químicos y mejorando tu vida."</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>10 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 11 — APLICACIONES
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>09 · APLICACIONES</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">09 — Aplicaciones</div>
+    <h1>Cómo se ve la marca en el mundo real.</h1>
+    <p class="lead">Cada superficie donde aparece SAVIA debe seguir las reglas de este manual. Cuando una aplicación nueva no esté contemplada aquí, derivarla del sistema existente.</p>
+
+    <h3>Etiqueta de producto</h3>
+    <p>Banda gradiente azul-verde en el tercio superior con la marca SAVIA y el descriptor "SOLUCIONES AGRO". Cuerpo blanco con el nombre funcional del producto en azul (Manrope 800), categoría en verde (Inter 700, all caps). Sello Kosher cuando aplique. Pictograma de peligro según la función del producto.</p>
+
+    <h3>Caja secundaria de envío</h3>
+    <p>Cartón corrugado natural sin teñir. Banda gradiente impresa en una cara con el logo SAVIA principal. Información de contenido (SKU, lote, cantidad, peso) en bloque blanco al pie. Pictogramas FRÁGIL / MANTENER SECO impresos en negro plano.</p>
+
+    <h3>Comunicación digital</h3>
+    <p>Plantillas 1:1 para redes sociales B2B (Instagram, LinkedIn). Fondo gradiente o blanco con logo en esquina superior izquierda. Mensaje principal en Manrope 800 con palabra clave en cursiva blanca translúcida. Footer con segmento ("SOLUCIONES AGRO · MX").</p>
+
+    <h3>Papelería</h3>
+    <p>Hoja membretada en papel blanco de 80gr. Logo horizontal a color en esquina superior izquierda. Datos de contacto en pie de página en Inter 400. Sin marcas de agua ni elementos decorativos.</p>
+
+    <h3>Vehículos y rotulación</h3>
+    <p>Vinil mate blanco sobre superficie del color del vehículo. Logo monocromático centrado en lateral con altura mínima de 40 cm. Sin gradientes ni efectos.</p>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>11 / 12</span>
+  </div>
+</div>
+
+<!-- ============================================
+     PAGE 12 — CONTACTO Y ARCHIVOS
+     ============================================ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo"><span class="mark"></span>SAVIA</div>
+    <div>10 · CONTACTO</div>
+  </div>
+  <div class="page-content">
+    <div class="section-num">10 — Contacto y archivos</div>
+    <h1>Dónde encontrar todo.</h1>
+    <p class="lead">Antes de aplicar la marca en cualquier nuevo material, consultar este manual y los archivos vectoriales originales.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Archivos del sistema</h3>
+        <p style="font-family:monospace;font-size:9pt;background:#fafafa;padding:4mm;border-radius:3px;line-height:1.7">
+          SAVIA-logo-color.svg<br>
+          SAVIA-logo-blanco.svg<br>
+          SAVIA-isotipo-color.svg<br>
+          SAVIA-isotipo-blanco.svg<br>
+          SAVIA-manual-marca.html<br>
+          SAVIA-presentacion.html
+        </p>
+        <p style="font-size:9pt;color:#888;margin-top:3mm">Todos los archivos en formato SVG vectorial editable. Abrir en Adobe Illustrator, Figma o Inkscape para ediciones.</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Para producción</h3>
+        <p>1. Abrir el SVG en Illustrator</p>
+        <p>2. Convertir el texto a contornos: <em>Tipo → Crear contornos</em></p>
+        <p>3. Verificar que las tintas coinciden con Pantone definidos</p>
+        <p>4. Exportar a PDF/X-1a para imprenta</p>
+        <p>5. Si la imprenta pide AI o EPS: <em>Archivo → Guardar como</em></p>
+
+        <h3 style="margin-top:6mm">Tipografías a instalar</h3>
+        <p style="font-family:monospace;font-size:9pt">Manrope (Google Fonts)<br>Inter (Google Fonts)</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:8mm">Versiones de este documento</h3>
+    <p><strong>1.0 — Abril 2026</strong> · Lanzamiento del sistema de marca</p>
+
+    <h3 style="margin-top:6mm">Responsable de marca</h3>
+    <p>[Nombre del responsable]<br>
+       [correo@empresa.mx]<br>
+       [teléfono]</p>
+  </div>
+  <div class="page-footer">
+    <span>SAVIA · Manual de Identidad</span>
+    <span>12 / 12</span>
+  </div>
+</div>
+
+</body>
+</html>

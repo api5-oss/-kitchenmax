@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200">
+  <!-- ISOTIPO (leaf mark) -->
+  <g transform="translate(40 40) rotate(-15 60 60)">
+    <path d="M 10,10 L 70,10 A 60,60 0 0,1 130,70 L 130,130 L 70,130 A 60,60 0 0,1 10,70 Z"
+          fill="#FFFFFF"/>
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="200" y="135"
+        font-family="Manrope, 'Manrope ExtraBold', sans-serif"
+        font-weight="800"
+        font-size="120"
+        letter-spacing="-3"
+        fill="#FFFFFF">SAVIA</text>
+</svg>
